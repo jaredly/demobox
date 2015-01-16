@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf8">
+<title>React Demobox</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.css">
+</head>
+<body>
+<header>
+</header>
+<main>
+
+<section>
+    <h1>First Example</h1>
+    <textarea data-demobox>
+        <strong>Awesome!</strong>
+    </textarea>
+</section>
+
+<section>
+    <h1>Second Example</h1>
+    <textarea data-demobox data-position="right" data-code-mirror="false">
+        <strong>Awesome!</strong>
+    </textarea>
+</section>
+
+<section>
+    <h1>Third Example</h1>
+    <table>
+        <tr>
+            <td>
+                <div id="second-target"></div>
+            </td><td>
+                <textarea
+                    data-demobox
+                    data-style-width="200px"
+                    data-style-height="200px"
+                    data-target="#second-target">
+                    <strong>Awesome!</strong>
+                </textarea>
+            </td>
+        </tr>
+    </table>
+</section>
+
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/mode/javascript/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.js"></script>
+<script src="react-demobox.js"></script>
+

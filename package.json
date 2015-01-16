@@ -1,0 +1,27 @@
+{
+  "name": "react-demobox",
+  "version": "1.0.0",
+  "description": "A box for demoing react components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaredly/react-demobox.git"
+  },
+  "keywords": [
+    "react",
+    "demo"
+  ],
+  "author": "Jared Forsyth <jared@jaredforsyth.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaredly/react-demobox/issues"
+  },
+  "homepage": "https://github.com/jaredly/react-demobox",
+  "dependencies": {
+    "react": "^0.12.2",
+    "reactify": "^0.17.1"
+  }
+}
