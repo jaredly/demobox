@@ -3,7 +3,7 @@ extraHead = "demo-head.html"
 styles = "demo.css"
 
 [demobox]
-height = 200
+height = "200px"
 ---
 
 # React Demobox demo page
@@ -11,20 +11,20 @@ height = 200
 ### First example
 
 ```javascript
-// @demobox
+// @demobox height=150px
 var first = 'javascript code'
 	, second = `You can evaluate ${first} with es6 goodness.`;
 // the last line must be an expression that results in a react
 //  element.
 <p>
-	<span>{second} </span>
+	<span>{second} </span><br/>
 	<strong>JSX is just fine</strong>
 </p>
 ```
 
-#### The source for this demo
+#### The source for this demo (<<)
 
-##### In the `<head>`:
+##### In the `<head>`
 
 ```html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.css">
@@ -33,7 +33,7 @@ var first = 'javascript code'
 <script src="react-demobox.js"></script>
 ```
 
-##### In the `<body>`:
+##### In the `<body>`
 
 ```html
 <textarea data-demobox>

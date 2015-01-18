@@ -1,5 +1,5 @@
 
-var toml = require('toml-js')
+var toml = require('toml')
   , deepcopy = require('deepcopy')
 
 module.exports = getConfig

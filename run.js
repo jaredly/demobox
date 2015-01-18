@@ -5,8 +5,15 @@ var React = require('react')
 module.exports = makeBoxFromNode
 
 document.addEventListener('DOMContentLoaded', () => {
-  [].map.call(document.querySelectorAll('[data-demobox]'), makeBoxFromNode)
+  ;[].map.call(document.querySelectorAll('[data-demobox]'), makeBoxFromNode)
+  ;[].map.call(document.querySelectorAll('[data-collapsible]'), makeCollapsible)
 })
+
+function makeCollapsible(node) {
+  node.firstElementChild.addEventListener('click', function () {
+    node.classList.toggle('collapsed')
+  })
+}
 
 function makeBox(node, options) {
   var div = document.createElement('div')

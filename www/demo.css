@@ -3,9 +3,14 @@ body {
     margin: 10px auto;
     font-family: sans-serif;
 }
-section {
-    padding: 20px;
-    margin-bottom: 20px;
+
+h1, h2, h3, h4, h5 {
+    margin-top: 20px;
+}
+
+body > section > section {
+    padding:  10px 20px 20px;
+    margin: 20px 0;
     box-shadow: 0 0 10px #aaa;
 }
 
