@@ -99,8 +99,6 @@ be displayed. Default is "right".
 <table>
     <tr>
         <td>
-            <div id="second-target"></div>
-        </td><td>
             <textarea
                 data-demobox
                 data-style-width="500px"
@@ -109,6 +107,18 @@ be displayed. Default is "right".
                 <span>This demo box one has a render target that is external, in a
                 different cell of this table</span>
             </textarea>
+        </td>
+        <td>
+            <h3>Source HTML</h3>
+<pre><code class="language-html">&lt;textarea data-demobox data-target="#id-of-target"&gt;
+... code ...
+&lt;/textarea&gt;</code></pre>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <div id="second-target"></div>
         </td>
     </tr>
 </table>

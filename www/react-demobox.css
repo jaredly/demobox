@@ -1,6 +1,12 @@
 
 [data-collapsible] > :first-child {
     cursor: pointer;
+    padding: 5px;
+}
+
+[data-collapsible] > :first-child:hover {
+    cursor: pointer;
+    outline: 1px solid #ccc;
 }
 
 [data-collapsible] > :first-child::after {
@@ -35,6 +41,9 @@
 
 .DemoBox_output {
     margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .DemoBox_error {
