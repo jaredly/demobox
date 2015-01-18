@@ -2,11 +2,11 @@
 var React = require('react')
   , DemoBox = require('./')
 
-document.addEventListener('DOMContentLoaded', () => {
-  [].map.call(document.querySelectorAll('[data-demobox]'), makeBox)
-})
-
 module.exports = makeBoxFromNode
+
+document.addEventListener('DOMContentLoaded', () => {
+  [].map.call(document.querySelectorAll('[data-demobox]'), makeBoxFromNode)
+})
 
 function makeBox(node, options) {
   var div = document.createElement('div')
@@ -28,7 +28,7 @@ function unIndent(text) {
 
 function makeBoxFromNode(node) {
   var style = {}
-  [].map.call(node.attributes, attr => {
+  ;[].map.call(node.attributes, attr => {
     if (attr.name.indexOf('data-style-') !== 0) return
     style[attr.name.slice('data-style-'.length)] = attr.value
   })
@@ -39,8 +39,8 @@ function makeBoxFromNode(node) {
 
   makeBox(node, {
     outputNode: target,
-    value: unIndent(node.value || node.innerHTML),
-    position: node.getAttribute('data-position'),
+    initialValue: unIndent(node.value || node.innerHTML),
+    position: node.getAttribute('data-position') || 'right',
     codeMirror: ['0', 'false'].indexOf(node.getAttribute('data-code-mirror')) === -1,
     style: style,
   })

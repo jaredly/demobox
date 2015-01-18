@@ -3,29 +3,212 @@
 <head>
 <meta charset="utf8">
 <title>React Demobox</title>
+
+<script>
+var initialValue = "var name = 'Sara'\n\
+var NameComponent = React.createClass({\n\
+    render: function () {\n\
+        return <span>\n\
+            Hello <strong>{this.props.name}</strong>\n\
+        </span>\n\
+    }\n\
+});\n\
+<NameComponent name={name}/>"
+</script>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/mode/javascript/javascript.min.js"></script>
+<script src="react-demobox.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+
+body {
+    max-width: 1000px;
+    margin: 10px auto;
+    font-family: sans-serif;
+}
+section {
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px #aaa;
+}
+
+table td {
+    border: 1px solid #acc;
+    padding: 20px;
+}
+
+h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+
+}
+
+section p:first-child {
+    margin-top: 0;
+}
+
+section > div > .DemoBox > .DemoBox_output {
+    border-left: 10px double #aaa;
+    padding-left: 10px;
+    margin: 0 10px;
+}
+
+.DemoBox_text {
+    border: 1px solid #cca;
+    background-color: #f0f0f0;
+}
+
+.DemoBox_text .CodeMirror {
+    background: transparent;
+}
+
+.DemoBox_text textarea {
+    border: none;
+    width: 200px;
+    height: 200px;
+    background: transparent;
+}
+
+.DemoBox_output {
+    margin: 10px;
+}
+
+.DemoBox_error {
+    padding: 10px 20px;
+    color: #700;
+    font-weight: bold;
+    background-color: #fdd;
+    border: 1px solid #caa;
+    margin: 5px;
+}
+
+.head-left {
+    width: 500px;
+}
+
+.head {
+    border-bottom: 1px solid #555;
+    margin-bottom: 10px;
+}
+
+.head span {
+    display: inline-block;
+    padding: 7px 10px;
+    font-weight: bold;
+}
+</style>
 </head>
 <body>
 <header>
 </header>
 <main>
 
+<h3>DemoBox</h3>
 <section>
-    <h1>First Example</h1>
+    <div class="head">
+        <span class="head-left">This is editable</span>
+        <span>This is the output</span>
+    </div>
     <textarea data-demobox>
-        <strong>Awesome!</strong>
+        var first = 'javascript code'
+          , second = `You can evaluate ${first} with es6 goodness.`;
+        // the last line must be an expression that results in a react
+        //  element.
+        <p>
+            <span>{second} </span>
+            <strong>JSX is just fine</strong>
+        </p>
+    </textarea>
+    <h4>The Source code for this example:</h4>
+    <pre><code class="html">&lt!-- &lthead> -->
+
+&lt!-- these aren't needed if you want just a plain textarea instead of a codemirror editor -->
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.css">
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.js">&lt;/script>
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/mode/javascript/javascript.min.js">&lt;/script>
+&lt!-- this is the only requirement -->
+&lt;script src="react-demobox.js">&lt;/script>
+
+
+&lt!-- &ltbody> -->
+
+&lt;!-- all you need is this attribute on a textarea -->
+&lt;textarea data-demobox>
+    var first = 'javascript code'
+        , second = `You can evaluate ${first} with es6 goodness.`;
+    // the last line must be an expression that results in a react
+    //  element.
+    &ltp>
+        &ltspan>{second} &lt/span>
+        &ltstrong>JSX is just fine&lt/strong>
+    &lt/p>
+&lt;/textarea></code></pre>
+</section>
+
+<h3>Slightly larger example</h3>
+<section>
+    <p>
+    The rest of these examples will show demobox-in-demobox, to make things
+    easier.
+    </p>
+    <div class="head">
+        <span class="head-left">This is editable</span>
+        <span>This is the output</span>
+    </div>
+    <textarea data-demobox data-style-height='200px'>
+        var initialValue=`\
+        var name = 'Sara'
+        var NameComponent = React.createClass({
+            render: function () {
+                return <span>
+                    Hello <strong>{this.props.name}</strong>
+                </span>
+            }
+        });
+        <NameComponent name={name}/>`;
+
+        <DemoBox initialValue={initialValue} position='top'/>
     </textarea>
 </section>
 
+<h3>Other Positions</h3>
 <section>
-    <h1>Second Example</h1>
-    <textarea data-demobox data-position="right" data-code-mirror="false">
-        <strong>Awesome!</strong>
+    <p>
+        The "position" argument allows you to specify where the output should
+        be displayed. Default is "right".
+    </p>
+    <div class="head">
+        <span class="head-left">This is editable</span>
+        <span>This is the output</span>
+    </div>
+    <textarea data-demobox data-style-height='200px' data-style-width='300px'>
+        <div>
+            <DemoBox position='top'/>
+            <hr/>
+            <DemoBox position='left'/>
+            <hr/>
+            <DemoBox/>
+            <hr/>
+            <DemoBox position='bottom'/>
+        </div>
     </textarea>
 </section>
 
-<section>
-    <h1>Third Example</h1>
+
+<h3>Without CodeMirror (just uses a textbox)</h3>
+<section id='second'>
+    <textarea data-demobox data-style-height='200px' data-position="right">
+        <DemoBox position='top' codeMirror={false}/>
+    </textarea>
+</section>
+
+<h3>Advanced Usage: External Output Node</h3>
+<section id='third'>
     <table>
         <tr>
             <td>
@@ -33,10 +216,11 @@
             </td><td>
                 <textarea
                     data-demobox
-                    data-style-width="200px"
+                    data-style-width="500px"
                     data-style-height="200px"
                     data-target="#second-target">
-                    <strong>Awesome!</strong>
+                    <span>This demo box one has a render target that is external, in a
+                    different cell of this table</span>
                 </textarea>
             </td>
         </tr>
@@ -44,7 +228,4 @@
 </section>
 
 </main>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/mode/javascript/javascript.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.js"></script>
-<script src="react-demobox.js"></script>
 

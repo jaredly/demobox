@@ -1,0 +1,77 @@
+body {
+    max-width: 1000px;
+    margin: 10px auto;
+    font-family: sans-serif;
+}
+section {
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px #aaa;
+}
+
+table td {
+    border: 1px solid #acc;
+    padding: 20px;
+}
+
+h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+
+}
+
+section p:first-child {
+    margin-top: 0;
+}
+
+section > div > .DemoBox > .DemoBox_output {
+    border-left: 10px double #aaa;
+    padding-left: 10px;
+    margin: 0 10px;
+}
+
+.DemoBox_text {
+    border: 1px solid #cca;
+    background-color: #f0f0f0;
+}
+
+.DemoBox_text .CodeMirror {
+    background: transparent;
+}
+
+.DemoBox_text textarea {
+    border: none;
+    width: 200px;
+    height: 200px;
+    background: transparent;
+}
+
+.DemoBox_output {
+    margin: 10px;
+}
+
+.DemoBox_error {
+    padding: 10px 20px;
+    color: #700;
+    font-weight: bold;
+    background-color: #fdd;
+    border: 1px solid #caa;
+    margin: 5px;
+}
+
+.head-left {
+    width: 500px;
+}
+
+.head {
+    border-bottom: 1px solid #555;
+    margin-bottom: 10px;
+}
+
+.head span {
+    display: inline-block;
+    padding: 7px 10px;
+    font-weight: bold;
+}
+
