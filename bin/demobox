@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 
 var marked = require('marked')
-  , rend = new marked.Renderer()
   , fs = require('fs')
   , path = require('path')
 
-rend.code = require('./render-code')
+  , getConfig = require('./get-config')
 
 var program = require('commander')
 
@@ -33,17 +32,61 @@ if (!fs.existsSync(path.dirname(outName))) {
   program.help()
 }
 
+function twoSplit(what, delim) {
+  var parts = what.split(delim)
+  return parts[0], parts.slice(1).join(delim)
+}
+
+var raw = fs.readFileSync(fileName).toString('utf8')
+var parts = raw.split('\n---\n')
+  , config
+if (parts.length === 1) {
+  config = getConfig.DEFAULTS
+} else {
+  config = getConfig(parts[0])
+  raw = parts.slice(1).join('\n---\n')
+}
+
+console.log(config, parts.length)
+
+var rend = new marked.Renderer()
+rend.code = require('./render-code').bind(null, rend, config.demobox)
+
 var body
 try {
-  body = marked(fs.readFileSync(fileName).toString('utf8'), {renderer: rend})
+  body = marked(raw, {renderer: rend})
 } catch (e) {
   console.log('Failed to render markdown!')
   console.log(e.message + '\n' + e.stack)
   process.exit(1)
 }
 
+function format(str, dct) {
+  return str.replace(/{([^}]+)}/g, function (full, name) {
+    if (undefined === dct[name]) return name
+    return dct[name]
+  })
+}
+
 var top = fs.readFileSync(__dirname + '/top.html', 'utf8')
   , bottom = fs.readFileSync(__dirname + '/bottom.html', 'utf8')
+
+top = format(top, {
+  title: config.title,
+  scripts: config.scripts.map(function (name) {
+    return '<script src="' + name + '"></script>'
+  }).join('\n'),
+  styles: config.styles.map(function (name) {
+    return '<link rel="stylesheet" href="' + name + '">'
+  }).join('\n'),
+  extraHead: config.extraHead.map(function (name) {
+    console.log('head', name)
+    return fs.readFileSync(name).toString('utf8')
+  }).join('\n'),
+  bodyTop: config.bodyTop.map(function (name) {
+    return fs.readFileSync(name).toString('utf8')
+  }).join('\n')
+})
 
 fs.writeFileSync(outName, top + body + bottom)
 

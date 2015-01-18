@@ -31,34 +31,6 @@ section > div > .DemoBox > .DemoBox_output {
     margin: 0 10px;
 }
 
-.DemoBox_text {
-    border: 1px solid #cca;
-    background-color: #f0f0f0;
-}
-
-.DemoBox_text .CodeMirror {
-    background: transparent;
-}
-
-.DemoBox_text textarea {
-    border: none;
-    width: 200px;
-    height: 200px;
-    background: transparent;
-}
-
-.DemoBox_output {
-    margin: 10px;
-}
-
-.DemoBox_error {
-    padding: 10px 20px;
-    color: #700;
-    font-weight: bold;
-    background-color: #fdd;
-    border: 1px solid #caa;
-    margin: 5px;
-}
 
 .head-left {
     width: 500px;

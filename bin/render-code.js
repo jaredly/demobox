@@ -1,6 +1,7 @@
 "use strict";
 
-var marked = require("marked");
+var marked = require("marked")
+  , deepcopy = require('deepcopy')
 
 module.exports = renderCode;
 
@@ -12,8 +13,8 @@ var conflinex = {
 conflinex.jsx = conflinex.javascript;
 conflinex.less = conflinex.css;
 
-function renderCode(text, language) {
-  var config = getConfig(text, language);
+function renderCode(rend, defaults, text, language) {
+  var config = getConfig(defaults, text, language);
   if (!config) return marked.defaults.renderer.code(text, language);
   // remove config line
   text = text.slice(text.indexOf("\n") + 1);
@@ -54,7 +55,7 @@ function configValue(value) {
 
 function configAttrs(config) {
   return Object.keys(config).map(function (key) {
-    return key + "=\"" + config.replace(/"/g, "&quot;").replace(/</g, "&lt;");
+    return key + "=\"" + ('' + config[key]).replace(/"/g, "&quot;").replace(/</g, "&lt;");
   }).join(" ");
 }
 
@@ -62,10 +63,12 @@ function textAreaSafe(text) {
   return text.replace(/</g, "&lt;");
 }
 
-function getConfig(text, language) {
+function getConfig(defaults, text, language) {
   if (!conflinex[language]) return false;
-  var confline = conflinex[language].match(text.trim());
+  var confline = text.trim().match(conflinex[language]);
   if (!confline) return false;
+  var config = deepcopy(defaults)
+  config.lang = language
   return confline[1].trim().split(",").map(function (t) {
     return t.trim().split("=");
   }).reduce(function (config, item) {
@@ -75,10 +78,6 @@ function getConfig(text, language) {
       value = item.slice(1).join("=").trim();
     }
     config[item[0]] = value;
-  }, {
-    height: 150,
-    output: true,
-    position: "right",
-    lang: language });
+  }, config)
 }
 
