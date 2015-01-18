@@ -20,7 +20,6 @@ function unIndent(text) {
   lines.forEach(line => {
     if (!line.trim().length) return
     var white = /^ */.exec(line)[0].length
-    console.log(white, line)
     if (white < min) min = white
   })
   return lines.map(line => line.slice(min)).join('\n')
@@ -36,6 +35,8 @@ function makeBoxFromNode(node) {
   if (target) {
     target = document.querySelector(target)
   }
+  style.height = node.getAttribute('height') || style.height
+  style.width = node.getAttribute('width') || style.width
 
   makeBox(node, {
     outputNode: target,
