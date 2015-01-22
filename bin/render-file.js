@@ -44,11 +44,14 @@ function getTheme(config) {
 function renderFile(fileName, outName) {
 
   var raw = fs.readFileSync(fileName).toString('utf8')
-  var parts = raw.split('\n---\n')
+  var parts = raw.split(/^---$/gm)
     , config
   if (parts.length === 1) {
     config = getConfig.DEFAULTS
   } else {
+    if (!parts[0].trim()) {
+      parts.shift()
+    }
     config = getConfig(parts[0])
     raw = parts.slice(1).join('\n---\n')
   }

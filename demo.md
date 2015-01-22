@@ -1,11 +1,12 @@
-title = "React Demobox"
-extraHead = "demo-head.html"
-styles = "demo.css"
-repo = "http://github.com/jaredly/react-demobox"
-fontPair = "Open Sans"
+---
+title: React Demobox
+extraHead: demo-head.html
+styles: demo.css
+repo: http://github.com/jaredly/react-demobox
+fontPair: Open Sans
 
-[demobox]
-height = "200px"
+demobox:
+- height: 200px
 ---
 
 # First example

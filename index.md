@@ -1,10 +1,11 @@
-title = "React Demobox"
-styles = "demo.css"
-repo = "https://github.com/jaredly/react-demobox"
-fontPair = "Open Sans"
+---
+title: React Demobox
+styles: demo.css
+repo: https://github.com/jaredly/react-demobox
+fontPair: Open Sans
 
-[demobox]
-style-min-width = "300px"
+demobox:
+- style-min-width: "300px"
 ---
 
 There are three ways to use demobox, for varying simplicity and flexibility.

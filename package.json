@@ -21,14 +21,14 @@
   },
   "homepage": "https://github.com/jaredly/react-demobox",
   "dependencies": {
-    "commander": "^2.6.0",
     "deepcopy": "^0.4.0",
-    "jstransform": "^8.2.0",
-    "less": "^2.2.0",
     "marked": "^0.3.2",
-    "react": "^0.12.2",
+    "yamlish": "0.0.6"
+  },
+  "devDependencies": {
+    "commander": "^2.6.0",
+    "jstransform": "^8.2.0",
     "reactify": "^0.17.1",
-    "toml": "^2.1.1",
-    "toml-js": "0.0.8"
+    "react": "^0.12.2"
   }
 }

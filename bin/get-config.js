@@ -1,5 +1,5 @@
 
-var toml = require('toml')
+var yamlish = require('yamlish')
   , deepcopy = require('deepcopy')
 
 module.exports = getConfig
@@ -25,7 +25,7 @@ function getConfig(text) {
   var config = deepcopy(module.exports.DEFAULTS)
   var parsed
   try {
-    parsed = toml.parse(text)
+    parsed = yamlish.decode(text)
   } catch (e) {
     console.log('Failed to parse config at top of file.')
     process.exit(2)
