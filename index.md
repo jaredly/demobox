@@ -1,85 +1,60 @@
 title = "React Demobox"
 styles = "demo.css"
+repo = "https://github.com/jaredly/react-demobox"
+fontPair = "Open Sans"
 
 [demobox]
-height = "200px"
 style-min-width = "300px"
 ---
 
-# React Demobox
-
 There are three ways to use demobox, for varying simplicity and flexibility.
 
-## Demobox cmd-line markdown demo page generator
+# cli demo page generator
 
 The `demobox` cli tool will turn a regular markdown file with annotated code
 snippets into a stylish demo page with editable examples. You can look at the
 markdown source for this page [here](/index.md).
 
 ```bash
-demobox infile.md outfile.html
+demobox -i infile.md -o outfile.html
 ```
 
-### `infile.md`
-
+## `infile.md` (<<)
 
 ````markdown
-#### My Awesomebutton
+title = "Awesomebutton Demo"
+repo = "http://github.com/jaredly/awesomebutton"
+scripts = "awesomebutton.js"
+
+[demobox]
+height = "100px"
+---
+
+# Default Options
 
 ```jsx
 // @demobox
-var MyButton = React.createClass({
-    getInitialState: function () {
-        return {clicked: 0}
-    },
-    _onClick: function () {
-        this.setState({clicked: this.state.clicked + 1})
-    },
-    render: function () {
-        return <button onClick={this._onClick}>
-            Hello {this.props.name}!
-            {this.state.clicked ?
-                ' (clicked ' + this.state.clicked + ' times)' :
-                ' click me!'}
-        </button>
-    }
-});
-
 <MyButton name='julie'/>
 ```
 
-Wasn't that cool?
-````
-
-### `outfile.html` rendered page
-
-#### My Awesomebutton
+# Extra Large
 
 ```jsx
-// @demobox height=270px
-var MyButton = React.createClass({
-    getInitialState: function () {
-        return {clicked: 0}
-    },
-    _onClick: function () {
-        this.setState({clicked: this.state.clicked + 1})
-    },
-    render: function () {
-        return <button onClick={this._onClick}>
-            Hello {this.props.name}!
-            {this.state.clicked ?
-                ' (clicked ' + this.state.clicked + ' times)' :
-                ' click me!'}
-        </button>
-    }
-});
-
-<MyButton name='julie'/>
+// @demobox
+<MyButton large={true}/>
 ```
+````
 
-Wasn't that cool?
+## `outfile.html` rendered page
 
-## react-demobox.js script
+![example shot](./example-shot.png)
+
+## Configuration
+
+- colors: for color names, see [the material UI color list](http://www.google.com/design/spec/style/color.html#color-color-palette)
+- fontPair: the font pairings come from [femmbot's](http://github.com/femmbot) [google type project](http://femmebot.github.io/google-type/)
+
+# react-demobox.js script
 
 Include this in your `<head>`
 
@@ -89,24 +64,29 @@ Include this in your `<head>`
 <link rel="stylesheet" href="react-demobox.css">
 ```
 
-### Markup in the page
+## Markup in the page
 
 ```html
 <textarea data-demobox>
 // some great code here
 var x = 2+2
-<strong>End with a react element</strong>
+<strong>End with a react element {x}</strong>
 </textarea>
 ```
 
-### Rendered as a demobox
-
-... put something here
-
-## As a react component
+## Rendered as a demobox
 
 ```jsx
-// @demobox height=300
+// @demobox
+// some great code here
+var x = 2+2;
+<strong>End with a react element {x}</strong>
+```
+
+# As a react component
+
+```jsx
+// @demobox
 var value = `\
 var depth = 2
   , es_level = 6;
@@ -119,7 +99,8 @@ var depth = 2
     our JSX compilation
 </span>`;
 
-// Try changing position to left,right or bottom, and codeMirror to false
+// Try changing position to left, right
+// or bottom, and codeMirror to false
 <DemoBox
     position='top'
     codeMirror={true}

@@ -1,21 +1,44 @@
 
 var fs = require('fs')
   , getConfig = require('./get-config')
+  , themes = require('./themes')
 
 module.exports = renderFile
 
 function format(str, dct) {
-  return str.replace(/{([^}]+)}/g, function (full, name) {
+  return str.replace(/{([^}\n]+)}/g, function (full, name) {
     if (undefined === dct[name]) return ''
     return dct[name]
   })
 }
 
-function getThemeForTitle(title) {
-  var total = [].map.call(title, function (a) {return a.charCodeAt(0)}).reduce(function (a, b) {return a+b}, 0);
-  var themes = fs.readdirSync(__dirname + '/../build/themes')
-  console.log(themes)
-  return themes[total % themes.length].slice(0, -4)
+function chooseByTitle(title, object) {
+  var total = [].map.call(title, function (a) {return a.charCodeAt(0)}).reduce(function (a, b) {return a+b}, 0)
+    , keys = Object.keys(object)
+  return object[keys[total % keys.length]]
+}
+
+function fontImports(font) {
+  return '<link href="http://fonts.googleapis.com/css?family=' +
+    font.head.url + (font.body.url ? '|' + font.body.url : '') + '" rel="stylesheet"/>'
+}
+
+function getTheme(config) {
+  var theme = {}
+  if (config.colors) {
+    theme.colors = themes.colors[config.colors.toLowerCase()] || themes.colors.red
+  } else {
+    theme.colors = chooseByTitle(config.title, themes.colors)
+  }
+
+  if (config.fontPair) {
+    theme.fonts = themes.fonts[config.fontPair.toLowerCase()] || themes.fonts['open sans']
+  } else {
+    theme.fonts = chooseByTitle(config.title, themes.fonts)
+  }
+  theme.fonts.imports = fontImports(theme.fonts)
+
+  return theme
 }
 
 function renderFile(fileName, outName) {
@@ -30,10 +53,7 @@ function renderFile(fileName, outName) {
     raw = parts.slice(1).join('\n---\n')
   }
 
-  if (!config.theme) {
-    config.theme = getThemeForTitle(config.title)
-    console.log(config.theme)
-  }
+  var theme = getTheme(config)
 
   var top = fs.readFileSync(__dirname + '/top.html', 'utf8')
     , bottom = fs.readFileSync(__dirname + '/bottom.html', 'utf8')
@@ -42,7 +62,15 @@ function renderFile(fileName, outName) {
   top = format(top, {
     title: config.title,
     repo: config.repo,
-    theme: config.theme,
+
+    'font-imports': theme.fonts.imports,
+    'font:head': theme.fonts.head.name,
+    'font:body': theme.fonts.body.name,
+
+    'color:main': theme.colors.main,
+    'color:accent': theme.colors.accent,
+    'color:accent-light': theme.colors.accentLight,
+
     scripts: config.scripts.map(function (name) {
       return '<script src="' + name + '"></script>'
     }).join('\n'),

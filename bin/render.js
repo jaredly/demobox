@@ -17,12 +17,17 @@ module.exports = function (raw, config) {
     var collapsed = title.match(/\((&lt;&lt;|&gt;&gt;)\)\s*$/)
     if (collapsed) {
       title = title.slice(0, -collapsed[0].length).trim()
+      text += '\n<a name="' + title + '"></a>'
       text += '\n<section data-collapsible ' +
         (collapsed[1] === '&lt;&lt;' ? 'class="collapsed"' : '') + '>\n'
     } else {
+      text += '\n<a name="' + title + '"></a>'
       text += '\n<section>\n'
     }
-    text += '<h' + level + '>' + title + '</h' + level + '>\n'
+    text += '<h' + level + '>' +
+      '<a href="#' + title + '">' +
+      title +
+      '</a></h' + level + '>\n'
     return text
   }
 

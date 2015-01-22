@@ -8,6 +8,8 @@ module.exports.DEFAULTS = {
   title: 'Demo Page',
   repo: '',
   theme: '',
+  fontPair: '',
+  colors: '',
   styles: [],
   scripts: [],
   extraHead: [],

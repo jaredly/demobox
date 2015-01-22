@@ -2,14 +2,13 @@ title = "React Demobox"
 extraHead = "demo-head.html"
 styles = "demo.css"
 repo = "http://github.com/jaredly/react-demobox"
+fontPair = "Open Sans"
 
 [demobox]
 height = "200px"
 ---
 
-# React Demobox demo page
-
-### First example
+# First example
 
 ```javascript
 // @demobox height=150px
@@ -23,9 +22,9 @@ var first = 'javascript code'
 </p>
 ```
 
-#### The source for this demo (<<)
+## The source for this demo (<<)
 
-##### In the `<head>`
+### In the `<head>`
 
 ```html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.css">
@@ -34,7 +33,7 @@ var first = 'javascript code'
 <script src="react-demobox.js"></script>
 ```
 
-##### In the `<body>`
+### In the `<body>`
 
 ```html
 <textarea data-demobox>
@@ -49,7 +48,7 @@ var first = 'javascript code'
 </textarea>
 ```
 
-### Slightly larger example
+# Slightly larger example
 
 The rest of these examples will show demobox-in-demobox, to make things
 easier.
@@ -70,7 +69,7 @@ var NameComponent = React.createClass({
 <DemoBox initialValue={initialValue} position='top'/>
 ```
 
-### Other Positions
+# Other Positions
 
 The "position" argument allows you to specify where the output should
 be displayed. Default is "right".
@@ -88,14 +87,14 @@ be displayed. Default is "right".
 </div>
 ```
 
-### Without CodeMirrir (just uses a text box)
+# Without CodeMirror (just uses a text box)
 
 ```jsx
 // @demobox
 <DemoBox position='top' codeMirror={false}/>
 ```
 
-### Advanced Usage: External Output Node
+# Advanced Usage: External Output Node
 
 <table>
     <tr>
