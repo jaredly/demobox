@@ -12,7 +12,7 @@ var program = require('commander')
 var cmds = {
   gen: function (options) {
     var inFile = options.infile || 'demo.md'
-      , outFile = options.outfile || 'pages/demo.html'
+      , outFile = options.outfile || inFile.slice(0, -3) + '.html'
 
     if (!fs.existsSync(inFile)) {
       console.log(inFile + ' does not exist')
@@ -28,36 +28,23 @@ var cmds = {
 
     renderFile(inFile, outFile)
   },
-  setup: function (options) {
-    if (!fs.existsSync('./pages')) {
-      exec('git clone . pages &&\
-           cd pages &&\
-           git co --orphan gh-pages &&\
-           git rm --cached -r . &&\
-           git clean -df &&\
-           cp ' + __dirname + '/../build/* ./', function (err, stdout, stderr) {
-        if (err) console.log('error initializing', err)
-        console.log('created pages directory')
-      })
-    } else {
-      console.log('./pages directory already exists. Aborting')
-    }
-  }
 };
 
 program
-  .usage('command [options] ; where command is gen or setup')
-  .option('-i, --infile [infile]', "The path of the markdown file")
-  .option('-o, --outfile [outfile]', "The path of the markdown file")
+  .usage('demobox [options]')
+  .option('-i, --infile [infile]', "The path of the markdown file (default: demo.md)")
+  .option('-o, --outfile [outfile]', "The path of the markdown file (default: demo.html)")
   .version('1.0.0')
 
 program.parse(process.argv)
 
+/*
 var cmd = program.args.length ? program.args[0] : 'gen'
 
 if (!cmds[cmd]) {
   program.help()
 }
+*/
 
-cmds[cmd](program)
+cmds.gen(program)
 

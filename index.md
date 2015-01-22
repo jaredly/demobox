@@ -17,7 +17,8 @@ snippets into a stylish demo page with editable examples. You can look at the
 markdown source for this page [here](/index.md).
 
 ```bash
-demobox -i infile.md -o outfile.html
+$ npm install -g demobox
+$ demobox -i infile.md -o outfile.html
 ```
 
 ## `infile.md` (||)
