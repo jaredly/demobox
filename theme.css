@@ -61,7 +61,7 @@ p {
   line-height: 1.7;
 }
 h1 {
-  font-size: 1.5em;
+  font-size: 1.8em;
 }
 h2 {
   font-size: 1.3em;
@@ -84,6 +84,7 @@ h3,
 h4,
 h5 {
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 h1 a,
 h2 a,
@@ -124,6 +125,16 @@ h3 {
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 20px;
+}
+section.columns {
+  display: flex;
+}
+section.columns > section {
+  margin-left: 20px;
+  flex: 1;
+}
+section.columns > section:nth-child(2) {
+  margin-left: 0;
 }
 section p:first-child {
   margin-top: 0;

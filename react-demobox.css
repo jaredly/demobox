@@ -51,6 +51,9 @@
   height: 200px;
   background: transparent;
 }
+.DemoBox_text textarea:focus {
+  outline: none;
+}
 .DemoBox {
   display: flex;
 }

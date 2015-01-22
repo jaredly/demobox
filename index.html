@@ -70,11 +70,13 @@
 <p>The <code>demobox</code> cli tool will turn a regular markdown file with annotated code
 snippets into a stylish demo page with editable examples. You can look at the
 markdown source for this page <a href="/index.md">here</a>.</p>
-<pre><code class="lang-bash">demobox -i infile.md -o outfile.html
+<pre><code class="lang-bash">$ npm install -g demobox
+$ demobox -i infile.md -o outfile.html
 </code></pre>
 
+<section class="columns">
 <a name="<code>infile.md</code>"></a>
-<section data-collapsible class="collapsed">
+<section>
 <h2><a href="#<code>infile.md</code>"><code>infile.md</code></a></h2>
 <pre><code class="lang-markdown">---
 
@@ -110,12 +112,13 @@ height = &quot;100px&quot;
 <p><img src="./example-shot.png" alt="example shot"></p>
 </section>
 
+</section>
 <a name="Configuration"></a>
 <section>
 <h2><a href="#Configuration">Configuration</a></h2>
 <ul>
 <li>colors: for color names, see <a href="http://www.google.com/design/spec/style/color.html#color-color-palette">the material UI color list</a></li>
-<li>fontPair: the font pairings come from <a href="http://github.com/femmbot">femmbot&#39;s</a> <a href="http://femmebot.github.io/google-type/">google type project</a></li>
+<li>fontPair: the font pairings come from <a href="http://github.com/femmebot">femmebot&#39;s</a> <a href="http://femmebot.github.io/google-type/">google type project</a></li>
 </ul>
 </section>
 </section>
@@ -123,11 +126,15 @@ height = &quot;100px&quot;
 <a name="react-demobox.js script"></a>
 <section>
 <h1><a href="#react-demobox.js script">react-demobox.js script</a></h1>
-<p>Include this in your <code>&lt;head&gt;</code></p>
+
+<a name="Included in the <code>&lt;head&gt;</code>"></a>
+<section>
+<h3><a href="#Included in the <code>&lt;head&gt;</code>">Included in the <code>&lt;head&gt;</code></a></h3>
 <pre><code class="lang-html">&lt;!-- if you want codemirror, that needs to be included separately --&gt;
 &lt;script src=&quot;react-demobox.js&quot;&gt;&lt;/script&gt;
 &lt;link rel=&quot;stylesheet&quot; href=&quot;react-demobox.css&quot;&gt;
 </code></pre>
+</section>
 
 <a name="Markup in the page"></a>
 <section>
@@ -145,7 +152,7 @@ var x = &lt;em&gt;element&lt;/em&gt;;
 <section>
 <h3><a href="#Rendered as a demobox">Rendered as a demobox</a></h3>
 <p>The <code>react-demobox.js</code> script finds all <code>textarea</code>s with the <code>data-demobox</code>
-attribute and convers them into demoboxes that look like this:</p>
+attribute and converts them into demoboxes that look like this:</p>
 <textarea data-demobox height="150" output="true" position="right" lang="jsx">
 // some great code here
 var x = &lt;em>element&lt;/em>;
