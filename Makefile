@@ -17,9 +17,9 @@ pages:
 	rsync build/* -r pages
 
 index:
-	./bin/demobox -i index.md -o pages/index.html
+	./bin/demobox -i index.md -o pages/index.html --no-cdn
 
 demo:
-	./bin/demobox
+	./bin/demobox --no-cdn -o pages/demo.html
 
 .PHONY: less js pages

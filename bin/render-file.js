@@ -41,7 +41,7 @@ function getTheme(config) {
   return theme
 }
 
-function renderFile(fileName, outName) {
+function renderFile(fileName, outName, noCDN) {
 
   var raw = fs.readFileSync(fileName).toString('utf8')
   var parts = raw.split(/^---$/gm)
@@ -56,6 +56,10 @@ function renderFile(fileName, outName) {
     raw = parts.slice(1).join('\n---\n')
   }
 
+  if (noCDN) {
+    config.cdn = false
+  }
+
   var theme = getTheme(config)
 
   var top = fs.readFileSync(__dirname + '/top.html', 'utf8')
@@ -65,6 +69,8 @@ function renderFile(fileName, outName) {
   top = format(top, {
     title: config.title,
     repo: config.repo,
+
+    cdn: config.cdn ? 'https://jaredly.github.io/react-demobox/' : '',
 
     'font-imports': theme.fonts.imports,
     'font:head': theme.fonts.head.name,
