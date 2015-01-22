@@ -39,6 +39,11 @@
 .repo:hover {
     background-color: #689f38;
 }
+
+.DemoBox_head {
+    background-color: #8bc34a;
+    color: white;
+}
 </style>
 
 <link rel="stylesheet" href="demo.css">
@@ -65,13 +70,15 @@
 <p>The <code>demobox</code> cli tool will turn a regular markdown file with annotated code
 snippets into a stylish demo page with editable examples. You can look at the
 markdown source for this page <a href="/index.md">here</a>.</p>
-<pre><code class="undefinedbash">demobox -i infile.md -o outfile.html
+<pre><code class="lang-bash">demobox -i infile.md -o outfile.html
 </code></pre>
 
 <a name="<code>infile.md</code>"></a>
 <section data-collapsible class="collapsed">
 <h2><a href="#<code>infile.md</code>"><code>infile.md</code></a></h2>
-<pre><code class="undefinedmarkdown">title = &quot;Awesomebutton Demo&quot;
+<pre><code class="lang-markdown">---
+
+title = &quot;Awesomebutton Demo&quot;
 repo = &quot;http://github.com/jaredly/awesomebutton&quot;
 scripts = &quot;awesomebutton.js&quot;
 
@@ -83,17 +90,17 @@ height = &quot;100px&quot;
 
 # Default Options
 
-```jsx
+`` `jsx
 // @demobox
 &lt;MyButton name=&#39;julie&#39;/&gt;
-```
+`` `
 
 # Extra Large
 
-```jsx
+`` `jsx
 // @demobox
 &lt;MyButton large={true}/&gt;
-```
+`` `
 </code></pre>
 </section>
 
@@ -117,29 +124,33 @@ height = &quot;100px&quot;
 <section>
 <h1><a href="#react-demobox.js script">react-demobox.js script</a></h1>
 <p>Include this in your <code>&lt;head&gt;</code></p>
-<pre><code class="undefinedhtml">&lt;!-- if you want codemirror, that needs to be included separately --&gt;
+<pre><code class="lang-html">&lt;!-- if you want codemirror, that needs to be included separately --&gt;
 &lt;script src=&quot;react-demobox.js&quot;&gt;&lt;/script&gt;
 &lt;link rel=&quot;stylesheet&quot; href=&quot;react-demobox.css&quot;&gt;
 </code></pre>
 
 <a name="Markup in the page"></a>
 <section>
-<h2><a href="#Markup in the page">Markup in the page</a></h2>
-<pre><code class="undefinedhtml">&lt;textarea data-demobox&gt;
+<h3><a href="#Markup in the page">Markup in the page</a></h3>
+<pre><code class="lang-html">&lt;textarea data-demobox&gt;
 // some great code here
-var x = 2+2
-&lt;strong&gt;End with a react element {x}&lt;/strong&gt;
+var x = &lt;em&gt;element&lt;/em&gt;;
+
+&lt;strong&gt;End with a react {x}&lt;/strong&gt;
 &lt;/textarea&gt;
 </code></pre>
 </section>
 
 <a name="Rendered as a demobox"></a>
 <section>
-<h2><a href="#Rendered as a demobox">Rendered as a demobox</a></h2>
+<h3><a href="#Rendered as a demobox">Rendered as a demobox</a></h3>
+<p>The <code>react-demobox.js</code> script finds all <code>textarea</code>s with the <code>data-demobox</code>
+attribute and convers them into demoboxes that look like this:</p>
 <textarea data-demobox height="150" output="true" position="right" lang="jsx">
 // some great code here
-var x = 2+2;
-&lt;strong>End with a react element {x}&lt;/strong>
+var x = &lt;em>element&lt;/em>;
+
+&lt;strong>End with a react {x}&lt;/strong>
 </textarea></section>
 </section>
 
@@ -148,21 +159,17 @@ var x = 2+2;
 <h1><a href="#As a react component">As a react component</a></h1>
 <textarea data-demobox height="150" output="true" position="right" lang="jsx">
 var value = `\
-var depth = 2
-  , es_level = 6;
-
-&lt;span>
-    Our depth is now at &lt;strong>{depth}
-    demoboxes&lt;/strong>, and we
-    get &lt;em>es{es_level}
-    goodness&lt;/em> along with
-    our JSX compilation
-&lt;/span>`;
+&lt;strong>
+  It's demoboxes all the way down...
+&lt;/strong>
+`;
 
 // Try changing position to left, right
-// or bottom, and codeMirror to false
+// or top, and codeMirror to false
 &lt;DemoBox
-    position='top'
+    position='bottom'
+    header={true}
+    style={{width: 360}}
     codeMirror={true}
     initialValue={value}/>
 </textarea></section>
