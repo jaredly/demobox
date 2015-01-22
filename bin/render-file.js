@@ -11,6 +11,13 @@ function format(str, dct) {
   })
 }
 
+function getThemeForTitle(title) {
+  var total = [].map.call(title, function (a) {return a.charCodeAt(0)}).reduce(function (a, b) {return a+b}, 0);
+  var themes = fs.readdirSync(__dirname + '/../build/themes')
+  console.log(themes)
+  return themes[total % themes.length].slice(0, -4)
+}
+
 function renderFile(fileName, outName) {
 
   var raw = fs.readFileSync(fileName).toString('utf8')
@@ -23,6 +30,11 @@ function renderFile(fileName, outName) {
     raw = parts.slice(1).join('\n---\n')
   }
 
+  if (!config.theme) {
+    config.theme = getThemeForTitle(config.title)
+    console.log(config.theme)
+  }
+
   var top = fs.readFileSync(__dirname + '/top.html', 'utf8')
     , bottom = fs.readFileSync(__dirname + '/bottom.html', 'utf8')
     , body = require('./render')(raw, config)
@@ -30,6 +42,7 @@ function renderFile(fileName, outName) {
   top = format(top, {
     title: config.title,
     repo: config.repo,
+    theme: config.theme,
     scripts: config.scripts.map(function (name) {
       return '<script src="' + name + '"></script>'
     }).join('\n'),

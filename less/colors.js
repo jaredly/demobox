@@ -8,6 +8,12 @@ var themes = []
 
 var fs = require('fs')
 var tpl = fs.readFileSync('./tpl.less', 'utf8')
+var less = require('less')
+
+function save(filename, err, text) {
+  if (err) return console.error('Failed to compile ' + filename, err)
+  fs.writeFileSync(filename, text.css)
+}
 
 for (var i=0; i<main.length; i++) {
   var text = format(tpl, {
@@ -15,12 +21,14 @@ for (var i=0; i<main.length; i++) {
     accent: accent[i],
     accentLight: accentLight[i]
   })
-  fs.writeFileSync('./theme-' + names[i].toLowerCase().replace(' ', '-') + '.less', text)
+  var name = names[i].toLowerCase().replace(' ', '-')
+  less.render(text, {
+    paths: ['.'], compress: true, filename: name
+  }, save.bind(null, '../build/themes/' + name + '.css'))
 }
 
-
 function format(str, dct) {
-  return str.replace(/{([^}]+)}/g, function (full, name) {
+  return str.replace(/{([^}\n]+)}/g, function (full, name) {
     if (undefined === dct[name]) return ''
     return dct[name]
   })

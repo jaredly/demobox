@@ -3,4 +3,15 @@
 @accent: {accent};
 @accentLight: {accentLight};
 
-@import "./theme.less";
+#header {
+    background-color: @main;
+}
+
+.repo {
+    background-color: @accent;
+
+    &:hover {
+        background-color: @accentLight;
+    }
+}
+

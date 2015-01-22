@@ -6,10 +6,15 @@ js:
 
 less:
 	lessc less/theme.less build/theme.css
+	lessc less/index.less build/react-demobox.css
+
+colors:
+	mkdir -p build/themes
+	cd less && node colors.js
 
 pages:
 	mkdir -p pages/demobox
-	cp build/* pages/demobox
+	rsync build/* -r pages/demobox
 
 gen:
 	./bin/demobox
