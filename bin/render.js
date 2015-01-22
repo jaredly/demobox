@@ -4,6 +4,7 @@ var marked = require('marked')
 module.exports = function (raw, config) {
   var rend = new marked.Renderer()
   rend._demobox_headlevel = []
+  rend._demobox_column = false
   rend.code = require('./render-code').bind(null, rend, config.demobox)
 
   rend.heading = function (title, level) {
@@ -16,13 +17,32 @@ module.exports = function (raw, config) {
     l.push(level)
     var collapsed = title.match(/\((&lt;&lt;|&gt;&gt;)\)\s*$/)
     if (collapsed) {
+      if (rend._demobox_column == level) {
+        rend._demobox_column = false
+        text += '\n</section>'
+      }
       title = title.slice(0, -collapsed[0].length).trim()
       text += '\n<a name="' + title + '"></a>'
       text += '\n<section data-collapsible ' +
         (collapsed[1] === '&lt;&lt;' ? 'class="collapsed"' : '') + '>\n'
     } else {
-      text += '\n<a name="' + title + '"></a>'
-      text += '\n<section>\n'
+      var column = title.match(/\(\|\|\)\s*$/)
+      if (column) {
+        if (!rend._demobox_column) {
+          rend._demobox_column = level
+          text += '\n<section class="columns">'
+        }
+        title = title.slice(0, -column[0].length).trim()
+        text += '\n<a name="' + title + '"></a>'
+        text += '\n<section>\n'
+      } else {
+        if (rend._demobox_column == level) {
+          rend._demobox_column = false
+          text += '\n</section>'
+        }
+        text += '\n<a name="' + title + '"></a>'
+        text += '\n<section>\n'
+      }
     }
     text += '<h' + level + '>' +
       '<a href="#' + title + '">' +

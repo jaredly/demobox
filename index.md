@@ -20,7 +20,7 @@ markdown source for this page [here](/index.md).
 demobox -i infile.md -o outfile.html
 ```
 
-## `infile.md` (<<)
+## `infile.md` (||)
 
 ```markdown
 
@@ -48,18 +48,18 @@ height = "100px"
 `` `
 ```
 
-## `outfile.html` rendered page
+## `outfile.html` rendered page (||)
 
 ![example shot](./example-shot.png)
 
 ## Configuration
 
 - colors: for color names, see [the material UI color list](http://www.google.com/design/spec/style/color.html#color-color-palette)
-- fontPair: the font pairings come from [femmbot's](http://github.com/femmbot) [google type project](http://femmebot.github.io/google-type/)
+- fontPair: the font pairings come from [femmebot's](http://github.com/femmebot) [google type project](http://femmebot.github.io/google-type/)
 
 # react-demobox.js script
 
-Include this in your `<head>`
+### Included in the `<head>`
 
 ```html
 <!-- if you want codemirror, that needs to be included separately -->
@@ -81,7 +81,7 @@ var x = <em>element</em>;
 ### Rendered as a demobox
 
 The `react-demobox.js` script finds all `textarea`s with the `data-demobox`
-attribute and convers them into demoboxes that look like this:
+attribute and converts them into demoboxes that look like this:
 
 ```jsx
 // @demobox
@@ -105,6 +105,7 @@ var value = `\
 // or top, and codeMirror to false
 <DemoBox
     position='bottom'
+    header={true}
     style={{width: 360}}
     codeMirror={true}
     initialValue={value}/>

@@ -74,7 +74,7 @@ p {
 }
 
 h1 {
-  font-size: 1.5em;
+  font-size: 1.8em;
 }
 h2 {
   font-size: 1.3em;
@@ -93,6 +93,7 @@ h5, h6 {
 
 h1, h2, h3, h4, h5 {
     margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 h1 a, h2 a, h3 a, h4 a {
@@ -131,6 +132,19 @@ h3 {
     margin-bottom: 10px;
     font-size: 20px;
 
+}
+
+section.columns {
+  display: flex;
+
+  > section {
+    margin-left: 20px;
+    flex: 1;
+
+    &:nth-child(2) {
+      margin-left: 0;
+    }
+  }
 }
 
 section p:first-child {
