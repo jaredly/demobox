@@ -3,108 +3,61 @@
 var marked = require('marked')
   , fs = require('fs')
   , path = require('path')
+  , exec = require('child_process').exec
 
-  , getConfig = require('./get-config')
+  , renderFile = require('./render-file')
 
 var program = require('commander')
 
+var cmds = {
+  gen: function (options) {
+    var inFile = options.infile || 'demo.md'
+      , outFile = options.outfile || 'pages/demo.html'
+
+    if (!fs.existsSync(inFile)) {
+      console.log(inFile + ' does not exist')
+      console.log()
+      program.help()
+    }
+
+    if (!fs.existsSync(path.dirname(outFile))) {
+      console.log('Destination directory ' + path.dirname(outFile) + ' does not exist')
+      console.log()
+      program.help()
+    }
+
+    renderFile(inFile, outFile)
+  },
+  setup: function (options) {
+    if (!fs.existsSync('./pages')) {
+      exec('git clone . pages &&\
+           cd pages &&\
+           git co --orphan gh-pages &&\
+           git rm --cached -r . &&\
+           git clean -df &&\
+           cp ' + __dirname + '/../build/* ./', function (err, stdout, stderr) {
+        if (err) console.log('error initializing', err)
+        console.log('created pages directory')
+      })
+    } else {
+      console.log('./pages directory already exists. Aborting')
+    }
+  }
+};
+
 program
+  .usage('command [options] ; where command is gen or setup')
+  .option('-i, --infile [infile]', "The path of the markdown file")
+  .option('-o, --outfile [outfile]', "The path of the markdown file")
   .version('1.0.0')
-  .usage('[options] <file.md> <outfile.html>')
-  .parse(process.argv)
 
-if (program.args.length != 2) {
+program.parse(process.argv)
+
+var cmd = program.args.length ? program.args[0] : 'gen'
+
+if (!cmds[cmd]) {
   program.help()
 }
 
-var fileName = program.args[0]
-  , outName = program.args[1]
-
-if (!fs.existsSync(fileName)) {
-  console.log(fileName + ' does not exist')
-  console.log()
-  program.help()
-}
-
-if (!fs.existsSync(path.dirname(outName))) {
-  console.log('Destination directory ' + path.dirname(outName) + ' does not exist')
-  console.log()
-  program.help()
-}
-
-function twoSplit(what, delim) {
-  var parts = what.split(delim)
-  return parts[0], parts.slice(1).join(delim)
-}
-
-var raw = fs.readFileSync(fileName).toString('utf8')
-var parts = raw.split('\n---\n')
-  , config
-if (parts.length === 1) {
-  config = getConfig.DEFAULTS
-} else {
-  config = getConfig(parts[0])
-  raw = parts.slice(1).join('\n---\n')
-}
-
-var rend = new marked.Renderer()
-rend._demobox_headlevel = []
-rend.code = require('./render-code').bind(null, rend, config.demobox)
-
-rend.heading = function (title, level) {
-  var l = rend._demobox_headlevel
-    , text = ''
-  while (l.length && l[l.length-1] >= level) {
-    text += '</section>\n'
-    l.pop()
-  }
-  l.push(level)
-  var collapsed = title.match(/\((&lt;&lt;|&gt;&gt;)\)\s*$/)
-  if (collapsed) {
-    title = title.slice(0, -collapsed[0].length).trim()
-    text += '\n<section data-collapsible ' +
-      (collapsed[1] === '&lt;&lt;' ? 'class="collapsed"' : '') + '>\n'
-  } else {
-    text += '\n<section>\n'
-  }
-  text += '<h' + level + '>' + title + '</h' + level + '>\n'
-  return text
-}
-
-var body
-try {
-  body = marked(raw, {renderer: rend})
-} catch (e) {
-  console.log('Failed to render markdown!')
-  console.log(e.message + '\n' + e.stack)
-  process.exit(1)
-}
-
-function format(str, dct) {
-  return str.replace(/{([^}]+)}/g, function (full, name) {
-    if (undefined === dct[name]) return name
-    return dct[name]
-  })
-}
-
-var top = fs.readFileSync(__dirname + '/top.html', 'utf8')
-  , bottom = fs.readFileSync(__dirname + '/bottom.html', 'utf8')
-
-top = format(top, {
-  title: config.title,
-  scripts: config.scripts.map(function (name) {
-    return '<script src="' + name + '"></script>'
-  }).join('\n'),
-  styles: config.styles.map(function (name) {
-    return '<link rel="stylesheet" href="' + name + '">'
-  }).join('\n'),
-  extraHead: config.extraHead.map(function (name) {
-    return fs.readFileSync(name).toString('utf8')
-  }).join('\n'),
-  bodyTop: config.bodyTop.map(function (name) {
-    return fs.readFileSync(name).toString('utf8')
-  }).join('\n')
-})
-
-fs.writeFileSync(outName, top + body + bottom)
+cmds[cmd](program)
 

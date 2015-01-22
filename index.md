@@ -12,6 +12,10 @@ There are three ways to use demobox, for varying simplicity and flexibility.
 
 ## Demobox cmd-line markdown demo page generator
 
+The `demobox` cli tool will turn a regular markdown file with annotated code
+snippets into a stylish demo page with editable examples. You can look at the
+markdown source for this page [here](/index.md).
+
 ```bash
 demobox infile.md outfile.html
 ```

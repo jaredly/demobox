@@ -8,13 +8,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/mode/javascript/javascript.min.js"></script>
 
-<script src="react-demobox.js"></script>
+<script src="demobox/react-demobox.js"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<link rel="stylesheet" href="react-demobox.css">
+<link rel="stylesheet" href="demobox/react-demobox.css">
+<link rel="stylesheet" href="demobox/theme.css">
 
 {styles}
 {extraHead}
@@ -22,3 +23,13 @@
 <body>
 {bodyTop}
 
+<header id="header">
+    <div class="title">
+        {title}
+    </div>
+    <a href="{repo}" class="repo">
+        Github
+    </a>
+</header>
+
+<section id="main">

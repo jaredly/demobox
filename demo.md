@@ -1,6 +1,7 @@
 title = "React Demobox"
 extraHead = "demo-head.html"
 styles = "demo.css"
+repo = "http://github.com/jaredly/react-demobox"
 
 [demobox]
 height = "200px"

@@ -6,6 +6,7 @@ module.exports = getConfig
 
 module.exports.DEFAULTS = {
   title: 'Demo Page',
+  repo: '',
   styles: [],
   scripts: [],
   extraHead: [],
