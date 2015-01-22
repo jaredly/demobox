@@ -3,3 +3,5 @@ node_modules
 .module-cache
 www/demo.html
 www/react-demobox.js
+/build
+/pages

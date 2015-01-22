@@ -1,0 +1,102 @@
+
+@import url(http://fonts.googleapis.com/css?family=Francois+One);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:800);
+
+body {
+    margin: 0;
+}
+
+#header {
+    background-color: @main;
+    padding: 50px 20px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+
+    .title {
+        font-size: 60px;
+        font-weight: bold;
+        color: white;
+    }
+}
+
+.repo {
+    padding: 5px 10px;
+    display: inline-block;
+    background-color: @accent;
+    transition: background-color .1s ease;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+
+    &:hover {
+        background-color: @accentLight;
+    }
+
+    &[href=""] {
+        display: none;
+    }
+}
+
+#main {
+    max-width: 1000px;
+    margin: 10px auto;
+    font-family: sans-serif;
+    font-size: 22px;
+}
+
+pre, code, .CodeMirror {
+    font-size: 16px;
+}
+
+p {
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5 {
+    margin-top: 20px;
+}
+
+body > section > section {
+    padding:  10px 20px 20px;
+    margin: 20px 0;
+    box-shadow: 0 0 10px #aaa;
+}
+
+table td {
+    border: 1px solid #acc;
+    padding: 20px;
+}
+
+h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+
+}
+
+section p:first-child {
+    margin-top: 0;
+}
+
+section > div > .DemoBox > .DemoBox_output {
+    border-left: 10px double #aaa;
+    padding-left: 10px;
+    margin: 0 10px;
+}
+
+
+.head-left {
+    width: 500px;
+}
+
+.head {
+    border-bottom: 1px solid #555;
+    margin-bottom: 10px;
+}
+
+.head span {
+    display: inline-block;
+    padding: 7px 10px;
+    font-weight: bold;
+}
+
