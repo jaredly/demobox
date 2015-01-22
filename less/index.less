@@ -33,10 +33,28 @@
 
 
 
+.DemoBox_head {
+  font-size: 14px;
+  font-family: monospace;
+  padding: 4px 6px;
+  background-color: #BDBDBD;
+  border-bottom: 1px solid #ccc;
+  color: #616161;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+}
 
 .DemoBox_text {
     border: 1px solid #cca;
     background-color: #f0f0f0;
+
+    .CodeMirrorRx {
+        margin: 5px;
+    }
 
     .CodeMirror {
         background: transparent;
@@ -51,11 +69,49 @@
     }
 }
 
+.DemoBox {
+  display: flex;
+
+  &-top {
+    flex-direction: column;
+  }
+  &-bottom {
+    flex-direction: column-reverse;
+  }
+  &-left {
+    flex-direction: row;
+  }
+  &-right {
+    flex-direction: row-reverse;
+  }
+  &-top, &-left {
+    justify-content: flex-start;
+  }
+  &-bottom, &-right {
+    justify-content: flex-end;
+  }
+}
+
+
 .DemoBox_output {
-    margin: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    .DemoBox-top > & {
+      border-bottom: none;
+    }
+    .DemoBox-bottom > & {
+      border-top: none;
+    }
+    .DemoBox-left > & {
+      border-right: none;
+    }
+    .DemoBox-right > & {
+      border-left: none;
+    }
 }
 
 .DemoBox_error {

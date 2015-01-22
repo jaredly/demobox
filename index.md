@@ -22,7 +22,9 @@ demobox -i infile.md -o outfile.html
 
 ## `infile.md` (<<)
 
-````markdown
+```markdown
+
+---
 title = "Awesomebutton Demo"
 repo = "http://github.com/jaredly/awesomebutton"
 scripts = "awesomebutton.js"
@@ -33,18 +35,18 @@ height = "100px"
 
 # Default Options
 
-```jsx
+`` `jsx
 // @demobox
 <MyButton name='julie'/>
-```
+`` `
 
 # Extra Large
 
-```jsx
+`` `jsx
 // @demobox
 <MyButton large={true}/>
+`` `
 ```
-````
 
 ## `outfile.html` rendered page
 
@@ -65,23 +67,28 @@ Include this in your `<head>`
 <link rel="stylesheet" href="react-demobox.css">
 ```
 
-## Markup in the page
+### Markup in the page
 
 ```html
 <textarea data-demobox>
 // some great code here
-var x = 2+2
-<strong>End with a react element {x}</strong>
+var x = <em>element</em>;
+
+<strong>End with a react {x}</strong>
 </textarea>
 ```
 
-## Rendered as a demobox
+### Rendered as a demobox
+
+The `react-demobox.js` script finds all `textarea`s with the `data-demobox`
+attribute and convers them into demoboxes that look like this:
 
 ```jsx
 // @demobox
 // some great code here
-var x = 2+2;
-<strong>End with a react element {x}</strong>
+var x = <em>element</em>;
+
+<strong>End with a react {x}</strong>
 ```
 
 # As a react component
@@ -89,21 +96,16 @@ var x = 2+2;
 ```jsx
 // @demobox
 var value = `\
-var depth = 2
-  , es_level = 6;
-
-<span>
-    Our depth is now at <strong>{depth}
-    demoboxes</strong>, and we
-    get <em>es{es_level}
-    goodness</em> along with
-    our JSX compilation
-</span>`;
+<strong>
+  It's demoboxes all the way down...
+</strong>
+`;
 
 // Try changing position to left, right
-// or bottom, and codeMirror to false
+// or top, and codeMirror to false
 <DemoBox
-    position='top'
+    position='bottom'
+    style={{width: 360}}
     codeMirror={true}
     initialValue={value}/>
 ```

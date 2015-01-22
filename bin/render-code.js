@@ -15,7 +15,7 @@ conflinex.less = conflinex.css;
 
 function renderCode(rend, defaults, text, language) {
   var config = getConfig(defaults, text, language);
-  if (!config) return marked.defaults.renderer.code(text, language);
+  if (!config) return marked.defaults.renderer.code.call(rend, text.trim(), language);
   // remove config line
   text = text.slice(text.indexOf("\n") + 1);
 
