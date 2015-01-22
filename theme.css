@@ -1,0 +1,147 @@
+@import url(http://fonts.googleapis.com/css?family=Francois+One);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:800);
+@import url(http://fonts.googleapis.com/css?family=Gentium+Basic);
+#header {
+  font-family: 'Open Sans', sans-serif;
+}
+#main {
+  font-family: "Gentium Basic", serif;
+}
+body {
+  margin: 0;
+}
+#header {
+  background-color: #f44336;
+  padding: 50px 20px;
+  text-align: center;
+}
+#header .title {
+  font-size: 80px;
+  font-weight: bold;
+  color: white;
+}
+.repo {
+  padding: 5px 10px;
+  display: inline-block;
+  background-color: #b71c1c;
+  transition: background-color 0.1s ease;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.repo:hover {
+  background-color: #d32f2f;
+}
+.repo[href=""] {
+  display: none;
+}
+h1 {
+  position: relative;
+}
+h1::before {
+  position: absolute;
+  top: 0;
+  bottom: 5px;
+  right: 100%;
+  width: 10px;
+  background-color: #ccc;
+  content: ' ';
+  margin-right: 20px;
+}
+#main {
+  max-width: 1000px;
+  margin: 10px auto;
+  font-size: 22px;
+}
+pre,
+.CodeMirror {
+  font-size: 16px;
+}
+p {
+  line-height: 1.7;
+}
+h1 {
+  font-size: 1.5em;
+}
+h2 {
+  font-size: 1.3em;
+  color: #333;
+}
+h3 {
+  font-size: 1.2em;
+}
+h4 {
+  font-size: 1.1em;
+  color: #333;
+}
+h5,
+h6 {
+  font-size: 1em;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-top: 20px;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+h1 a:visited,
+h2 a:visited,
+h3 a:visited,
+h4 a:visited {
+  color: inherit;
+}
+h1 a:hover:before,
+h2 a:hover:before,
+h3 a:hover:before,
+h4 a:hover:before {
+  content: '\1f517';
+  position: absolute;
+  right: 100%;
+  padding-right: 10px;
+  font-weight: bold;
+  color: #333;
+  font-size: 16px;
+  top: 50%;
+  margin-top: -10px;
+}
+#main {
+  padding: 10px 20px 20px;
+}
+table td {
+  border: 1px solid #acc;
+  padding: 20px;
+}
+h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+section p:first-child {
+  margin-top: 0;
+}
+section > div > .DemoBox > .DemoBox_output {
+  border-left: 10px double #aaa;
+  padding-left: 10px;
+  margin: 0 10px;
+}
+.head-left {
+  width: 500px;
+}
+.head {
+  border-bottom: 1px solid #555;
+  margin-bottom: 10px;
+}
+.head span {
+  display: inline-block;
+  padding: 7px 10px;
+  font-weight: bold;
+}

@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf8">
+<title>React Demobox</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/mode/javascript/javascript.min.js"></script>
+
+<script src="react-demobox.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<link rel="stylesheet" href="react-demobox.css">
+<link rel="stylesheet" href="theme.css">
+
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:800|Gentium+Basic:400,400italic" rel="stylesheet"/>
+<style>
+
+#header {
+    font-family: "Open Sans", sans-serif;
+}
+
+#main {
+    font-family: "Gentium Basic", serif;
+}
+
+#header {
+    background-color: #8bc34a;
+}
+
+.repo {
+    background-color: #33691e;
+}
+
+.repo:hover {
+    background-color: #689f38;
+}
+</style>
+
+<link rel="stylesheet" href="demo.css">
+<script>
+var initialValue = "var name = 'Sara'\n\
+var NameComponent = React.createClass({\n\
+    render: function () {\n\
+        return <span>\n\
+            Hello <strong>{this.props.name}</strong>\n\
+        </span>\n\
+    }\n\
+});\n\
+<NameComponent name={name}/>"
+</script>
+
+</head>
+<body>
+
+
+<header id="header">
+    <div class="title">
+        React Demobox
+    </div>
+    <a href="http://github.com/jaredly/react-demobox" class="repo">
+        Github
+    </a>
+</header>
+
+<section id="main">
+
+<a name="First example"></a>
+<section>
+<h1><a href="#First example">First example</a></h1>
+<textarea data-demobox height="150px" output="true" position="right" lang="javascript">
+var first = 'javascript code'
+    , second = `You can evaluate ${first} with es6 goodness.`;
+// the last line must be an expression that results in a react
+//  element.
+&lt;p>
+    &lt;span>{second} &lt;/span>&lt;br/>
+    &lt;strong>JSX is just fine&lt;/strong>
+&lt;/p>
+</textarea>
+<a name="The source for this demo"></a>
+<section data-collapsible class="collapsed">
+<h2><a href="#The source for this demo">The source for this demo</a></h2>
+
+<a name="In the <code>&lt;head&gt;</code>"></a>
+<section>
+<h3><a href="#In the <code>&lt;head&gt;</code>">In the <code>&lt;head&gt;</code></a></h3>
+<pre><code class="undefinedhtml">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.css&quot;&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/mode/javascript/javascript.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;react-demobox.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+</section>
+
+<a name="In the <code>&lt;body&gt;</code>"></a>
+<section>
+<h3><a href="#In the <code>&lt;body&gt;</code>">In the <code>&lt;body&gt;</code></a></h3>
+<pre><code class="undefinedhtml">&lt;textarea data-demobox&gt;
+var first = &#39;javascript code&#39;
+    , second = `You can evaluate ${first} with es6 goodness.`;
+// the last line must be an expression that results in a react
+//  element.
+&lt;p&gt;
+    &lt;span&gt;{second} &lt;/span&gt;
+    &lt;strong&gt;JSX is just fine&lt;/strong&gt;
+&lt;/p&gt;
+&lt;/textarea&gt;
+</code></pre>
+</section>
+</section>
+</section>
+
+<a name="Slightly larger example"></a>
+<section>
+<h1><a href="#Slightly larger example">Slightly larger example</a></h1>
+<p>The rest of these examples will show demobox-in-demobox, to make things
+easier.</p>
+<textarea data-demobox height="150" output="true" position="right" lang="jsx">
+var initialValue=`\
+var name = 'Sara'
+var NameComponent = React.createClass({
+    render: function () {
+    return &lt;span>
+        Hello &lt;strong>{this.props.name}&lt;/strong>
+    &lt;/span>
+    }
+});
+&lt;NameComponent name={name}/>`;
+
+&lt;DemoBox initialValue={initialValue} position='top'/>
+</textarea></section>
+
+<a name="Other Positions"></a>
+<section>
+<h1><a href="#Other Positions">Other Positions</a></h1>
+<p>The &quot;position&quot; argument allows you to specify where the output should
+be displayed. Default is &quot;right&quot;.</p>
+<textarea data-demobox height="150" output="true" position="right" lang="jsx" width="300">
+&lt;div>
+    &lt;DemoBox position='top'/>
+    &lt;hr/>
+    &lt;DemoBox position='left'/>
+    &lt;hr/>
+    &lt;DemoBox/>
+    &lt;hr/>
+    &lt;DemoBox position='bottom'/>
+&lt;/div>
+</textarea></section>
+
+<a name="Without CodeMirror (just uses a text box)"></a>
+<section>
+<h1><a href="#Without CodeMirror (just uses a text box)">Without CodeMirror (just uses a text box)</a></h1>
+<textarea data-demobox height="150" output="true" position="right" lang="jsx">
+&lt;DemoBox position='top' codeMirror={false}/>
+</textarea></section>
+
+<a name="Advanced Usage: External Output Node"></a>
+<section>
+<h1><a href="#Advanced Usage: External Output Node">Advanced Usage: External Output Node</a></h1>
+<table>
+    <tr>
+        <td>
+            <textarea
+                data-demobox
+                data-style-width="500px"
+                data-style-height="200px"
+                data-target="#second-target">
+                <span>This demo box one has a render target that is external, in a
+                different cell of this table</span>
+            </textarea>
+        </td>
+        <td>
+            <h3>Source HTML</h3>
+<pre><code class="language-html">&lt;textarea data-demobox data-target=&quot;#id-of-target&quot;&gt;
+... code ...
+&lt;/textarea&gt;</code></pre>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <div id="second-target"></div>
+        </td>
+    </tr>
+</table>
+
+</section>
+</body>
+</html>

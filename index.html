@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf8">
+<title>React Demobox</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/mode/javascript/javascript.min.js"></script>
+
+<script src="react-demobox.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<link rel="stylesheet" href="react-demobox.css">
+<link rel="stylesheet" href="theme.css">
+
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:800|Gentium+Basic:400,400italic" rel="stylesheet"/>
+<style>
+
+#header {
+    font-family: "Open Sans", sans-serif;
+}
+
+#main {
+    font-family: "Gentium Basic", serif;
+}
+
+#header {
+    background-color: #8bc34a;
+}
+
+.repo {
+    background-color: #33691e;
+}
+
+.repo:hover {
+    background-color: #689f38;
+}
+</style>
+
+<link rel="stylesheet" href="demo.css">
+
+</head>
+<body>
+
+
+<header id="header">
+    <div class="title">
+        React Demobox
+    </div>
+    <a href="https://github.com/jaredly/react-demobox" class="repo">
+        Github
+    </a>
+</header>
+
+<section id="main">
+<p>There are three ways to use demobox, for varying simplicity and flexibility.</p>
+
+<a name="cli demo page generator"></a>
+<section>
+<h1><a href="#cli demo page generator">cli demo page generator</a></h1>
+<p>The <code>demobox</code> cli tool will turn a regular markdown file with annotated code
+snippets into a stylish demo page with editable examples. You can look at the
+markdown source for this page <a href="/index.md">here</a>.</p>
+<pre><code class="undefinedbash">demobox -i infile.md -o outfile.html
+</code></pre>
+
+<a name="<code>infile.md</code>"></a>
+<section data-collapsible class="collapsed">
+<h2><a href="#<code>infile.md</code>"><code>infile.md</code></a></h2>
+<pre><code class="undefinedmarkdown">title = &quot;Awesomebutton Demo&quot;
+repo = &quot;http://github.com/jaredly/awesomebutton&quot;
+scripts = &quot;awesomebutton.js&quot;
+
+[demobox]
+height = &quot;100px&quot;
+
+---
+
+
+# Default Options
+
+```jsx
+// @demobox
+&lt;MyButton name=&#39;julie&#39;/&gt;
+```
+
+# Extra Large
+
+```jsx
+// @demobox
+&lt;MyButton large={true}/&gt;
+```
+</code></pre>
+</section>
+
+<a name="<code>outfile.html</code> rendered page"></a>
+<section>
+<h2><a href="#<code>outfile.html</code> rendered page"><code>outfile.html</code> rendered page</a></h2>
+<p><img src="./example-shot.png" alt="example shot"></p>
+</section>
+
+<a name="Configuration"></a>
+<section>
+<h2><a href="#Configuration">Configuration</a></h2>
+<ul>
+<li>colors: for color names, see <a href="http://www.google.com/design/spec/style/color.html#color-color-palette">the material UI color list</a></li>
+<li>fontPair: the font pairings come from <a href="http://github.com/femmbot">femmbot&#39;s</a> <a href="http://femmebot.github.io/google-type/">google type project</a></li>
+</ul>
+</section>
+</section>
+
+<a name="react-demobox.js script"></a>
+<section>
+<h1><a href="#react-demobox.js script">react-demobox.js script</a></h1>
+<p>Include this in your <code>&lt;head&gt;</code></p>
+<pre><code class="undefinedhtml">&lt;!-- if you want codemirror, that needs to be included separately --&gt;
+&lt;script src=&quot;react-demobox.js&quot;&gt;&lt;/script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;react-demobox.css&quot;&gt;
+</code></pre>
+
+<a name="Markup in the page"></a>
+<section>
+<h2><a href="#Markup in the page">Markup in the page</a></h2>
+<pre><code class="undefinedhtml">&lt;textarea data-demobox&gt;
+// some great code here
+var x = 2+2
+&lt;strong&gt;End with a react element {x}&lt;/strong&gt;
+&lt;/textarea&gt;
+</code></pre>
+</section>
+
+<a name="Rendered as a demobox"></a>
+<section>
+<h2><a href="#Rendered as a demobox">Rendered as a demobox</a></h2>
+<textarea data-demobox height="150" output="true" position="right" lang="jsx">
+// some great code here
+var x = 2+2;
+&lt;strong>End with a react element {x}&lt;/strong>
+</textarea></section>
+</section>
+
+<a name="As a react component"></a>
+<section>
+<h1><a href="#As a react component">As a react component</a></h1>
+<textarea data-demobox height="150" output="true" position="right" lang="jsx">
+var value = `\
+var depth = 2
+  , es_level = 6;
+
+&lt;span>
+    Our depth is now at &lt;strong>{depth}
+    demoboxes&lt;/strong>, and we
+    get &lt;em>es{es_level}
+    goodness&lt;/em> along with
+    our JSX compilation
+&lt;/span>`;
+
+// Try changing position to left, right
+// or bottom, and codeMirror to false
+&lt;DemoBox
+    position='top'
+    codeMirror={true}
+    initialValue={value}/>
+</textarea></section>
+</body>
+</html>
