@@ -16,6 +16,10 @@ pages:
 	mkdir -p pages
 	rsync build/* -r pages
 
+gh-pages: pages
+	cd pages && git add . && git commit -am'update pages' && git push
+
+
 index:
 	./bin/demobox -i index.md -o pages/index.html --no-cdn
 
