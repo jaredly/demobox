@@ -1,5 +1,7 @@
+<!--
 ---
 title: Demobox
+subtitle: Demo Page Generator
 styles: demo.css
 fontPair: Open Sans
 colors: light-green
@@ -11,6 +13,7 @@ links:
 demobox:
 - style-min-width: "300px"
 ---
+-->
 
 There are three ways to use demobox, for varying simplicity and flexibility.
 
@@ -18,7 +21,7 @@ There are three ways to use demobox, for varying simplicity and flexibility.
 
 The `demobox` cli tool will turn a regular markdown file with annotated code
 snippets into a stylish demo page with editable examples. You can look at the
-markdown source for this page [here](/index.md).
+markdown source for this page [here](https://github.com/jaredly/demobox/blob/master/Readme.md).
 
 ```bash
 $ npm install -g demobox
@@ -33,16 +36,15 @@ $ demobox -i demo.md -o demo.html
 title: Demobox
 extraHead: demo-head.html
 styles: demo.css
-repo: http://github.com/jaredly/demobox
 fontPair: Open Sans
-
-demobox:
-- height: 200px
+colors: light-green
+links:
+  Github: http://github.com/jaredly/demobox
 ---
 
 # First example
 
-``\`javascript
+``ˋjavascript
 // @demobox height=150px
 var first = 'javascript code'
   , second = `You can evaluate ${first} with es6 goodness.`;
@@ -52,7 +54,7 @@ var first = 'javascript code'
   <span>{second} </span><br/>
   <strong>JSX is just fine</strong>
 </p>
-``\`
+``ˋ
 
 ... etc.
 ```

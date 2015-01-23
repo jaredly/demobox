@@ -50,11 +50,18 @@ function makeLinks(links) {
 function renderFile(fileName, outName, noCDN, extraConfig) {
 
   var raw = fs.readFileSync(fileName).toString('utf8')
-  var parts = raw.split(/^---$/gm)
+    , parts = raw.split(/^---$/gm)
     , config
   if (parts.length === 1) {
     config = getConfig.DEFAULTS
   } else {
+    // allow for html comments to hide the config
+    if (parts[0].trim() === '<!--') {
+      parts.shift()
+      if (parts[1].trim().slice(0, 3) === '-->') {
+        parts[1] = parts[1].trim().slice(3)
+      }
+    }
     if (!parts[0].trim()) {
       parts.shift()
     }
