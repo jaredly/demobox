@@ -2,7 +2,6 @@
 ---
 title: Demobox
 subtitle: Demo Page Generator
-styles: demo.css
 fontPair: Open Sans
 colors: light-green
 links:
@@ -25,7 +24,7 @@ snippets into a stylish demo page with editable examples. You can look at the
 markdown source for this page
 [here](https://github.com/jaredly/demobox/blob/master/Readme.md) as an
 example. Also the source for the demo page
-([demo.md](https://github.com/jaredly/demobox/blob/master/Readme.md))
+([demo.md](https://github.com/jaredly/demobox/blob/master/demo.md))
 showcases a number of features.
 
 ```bash
@@ -39,12 +38,13 @@ $ demobox -i demo.md -o demo.html
 
 ---
 title: Demobox
-extraHead: demo-head.html
-styles: demo.css
 fontPair: Open Sans
 colors: light-green
 links:
-  Github: http://github.com/jaredly/demobox
+  Home: index.html
+  Demos: demos.html
+  Themes: themes.html
+  Github: https://github.com/jaredly/demobox
 ---
 
 # First example
@@ -72,6 +72,19 @@ var first = 'javascript code'
 
 - colors: for color names, see [the material UI color list](http://www.google.com/design/spec/style/color.html#color-color-palette)
 - fontPair: the font pairings come from [femmebot's](http://github.com/femmebot) [google type project](http://femmebot.github.io/google-type/)
+
+## Special Headings
+
+There are a few suffixes you can put onto headings that will give them extra
+properties.
+
+- `(<<)` marks the section as collapsed
+- `(>>)` marks the section as collapsible but expanded
+- `(||)` makes the section part of a column group. Adjascent sections (of the
+    same heading level) that have this marking will be rendered side-by-side.
+    An example of this is the `demo.md` and "`demo.html` rendered page"
+    sections above.
+
 
 # The `demobox.js` drop-in script
 
@@ -108,9 +121,14 @@ var x = <em>element</em>;
 ```
 
 Configuration options can be given as `data-*` attributes on the textarea.
-Look at the html source of this page (and the demo page) for example usage.
+Look at the html source of this page (and [the demo page](demo.html)) for example usage.
 
 # As a react component
+
+If you install the `demobox` library from npm (`npm install -S demobox`) then
+you can use the `DemoBox` react component in your project.
+
+In this demobox, you can play with the `DemoBox` component :).
 
 ```jsx
 // @demobox

@@ -1,8 +1,6 @@
 ---
 title: Demobox Demos
 subtitle: Getting rather meta
-extraHead: demo-head.html
-styles: demo.css
 fontPair: Open Sans
 colors: light-green
 links:
@@ -10,10 +8,11 @@ links:
   Demos: demos.html
   Themes: themes.html
   Github: https://github.com/jaredly/demobox
-
-demobox:
-- height: 200px
 ---
+
+Check out [the source for this page](https://github.com/jaredly/demobox/blob/master/demo.md)) and [the source for the home page](https://github.com/jaredly/demobox/blob/master/Readme.md) for extended examples of using `demobox` page generator.
+
+This page demonstrates some of the configuration for the `DemoBox` component.
 
 # First example
 
@@ -31,16 +30,23 @@ var first = 'javascript code'
 
 ## The source for this demo (<<)
 
-### In the `<head>`
+### Using `demobox` cli (||)
 
-```html
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/mode/javascript/javascript.min.js"></script>
-<script src="demobox.js"></script>
+````markdown
+```javascript
+// @demobox
+var first = 'javascript code'
+    , second = `You can evaluate ${first} with es6 goodness.`;
+// the last line must be an expression that results in a react
+//  element.
+<p>
+    <span>{second} </span>
+    <strong>JSX is just fine</strong>
+</p>
 ```
+````
 
-### In the `<body>`
+### Using `demobox.js` drop-in script (||)
 
 ```html
 <textarea data-demobox>
@@ -73,7 +79,9 @@ var NameComponent = React.createClass({
 });
 <NameComponent name={name}/>`;
 
-<DemoBox initialValue={initialValue} position='top'/>
+<DemoBox
+  initialValue={initialValue}
+  position='top'/>
 ```
 
 # Other Positions
