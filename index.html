@@ -70,10 +70,15 @@
 
 <section id="main">
 <p>There are three ways to use demobox, for varying simplicity and flexibility.</p>
+<ol>
+<li><a href="#demo-page-generator">demo page generator</a></li>
+<li><a href="#the-demoboxjs-drop-in-script">drop-in script</a></li>
+<li><a href="#as-a-react-component">react component</a></li>
+</ol>
 
-<a name="Demo Page Generator"></a>
+<a name="demo-page-generator"></a>
 <section>
-<h1><a href="#Demo Page Generator">Demo Page Generator</a></h1>
+<h1><a href="#demo-page-generator">Demo Page Generator</a></h1>
 <p>The <code>demobox</code> cli tool will turn a regular markdown file with annotated code
 snippets into a stylish demo page with editable examples. You can look at the
 markdown source for this page
@@ -86,9 +91,9 @@ $ demobox -i demo.md -o demo.html
 </code></pre>
 
 <section class="columns">
-<a name="<code>demo.md</code>"></a>
+<a name="demomd"></a>
 <section>
-<h2><a href="#<code>demo.md</code>"><code>demo.md</code></a></h2>
+<h2><a href="#demomd"><code>demo.md</code></a></h2>
 <pre><code class="markdown"><span class="hljs-horizontal_rule">---</span>
 
 title: Demobox
@@ -121,25 +126,25 @@ var first = 'javascript code'
 </code></pre>
 </section>
 
-<a name="<code>demo.html</code> rendered page"></a>
+<a name="demohtml-rendered-page"></a>
 <section>
-<h2><a href="#<code>demo.html</code> rendered page"><code>demo.html</code> rendered page</a></h2>
+<h2><a href="#demohtml-rendered-page"><code>demo.html</code> rendered page</a></h2>
 <p><a href="demo.html"><img src="./demo.png" alt="demo page"></a></p>
 </section>
 
 </section>
-<a name="Configuration"></a>
+<a name="configuration"></a>
 <section>
-<h2><a href="#Configuration">Configuration</a></h2>
+<h2><a href="#configuration">Configuration</a></h2>
 <ul>
 <li>colors: for color names, see <a href="http://www.google.com/design/spec/style/color.html#color-color-palette">the material UI color list</a></li>
 <li>fontPair: the font pairings come from <a href="http://github.com/femmebot">femmebot&#39;s</a> <a href="http://femmebot.github.io/google-type/">google type project</a></li>
 </ul>
 </section>
 
-<a name="Special Headings"></a>
+<a name="special-headings"></a>
 <section>
-<h2><a href="#Special Headings">Special Headings</a></h2>
+<h2><a href="#special-headings">Special Headings</a></h2>
 <p>There are a few suffixes you can put onto headings that will give them extra
 properties.</p>
 <ul>
@@ -153,22 +158,22 @@ properties.</p>
 </section>
 </section>
 
-<a name="The <code>demobox.js</code> drop-in script"></a>
+<a name="the-demoboxjs-drop-in-script"></a>
 <section>
-<h1><a href="#The <code>demobox.js</code> drop-in script">The <code>demobox.js</code> drop-in script</a></h1>
+<h1><a href="#the-demoboxjs-drop-in-script">The <code>demobox.js</code> drop-in script</a></h1>
 
-<a name="Included in the <code>&lt;head&gt;</code>"></a>
+<a name="included-in-the--lt-head-gt-"></a>
 <section>
-<h3><a href="#Included in the <code>&lt;head&gt;</code>">Included in the <code>&lt;head&gt;</code></a></h3>
+<h3><a href="#included-in-the--lt-head-gt-">Included in the <code>&lt;head&gt;</code></a></h3>
 <pre><code class="html"><span class="hljs-comment">&lt;!-- if you want codemirror, that needs to be included separately --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://jaredly.github.io/demobox/demobox.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"stylesheet"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"https://jaredly.github.io/demobox/demobox.css"</span>&gt;</span>
 </code></pre>
 </section>
 
-<a name="Markup in the page"></a>
+<a name="markup-in-the-page"></a>
 <section>
-<h3><a href="#Markup in the page">Markup in the page</a></h3>
+<h3><a href="#markup-in-the-page">Markup in the page</a></h3>
 <pre><code class="html"><span class="hljs-tag">&lt;<span class="hljs-title">textarea</span> <span class="hljs-attribute">data-demobox</span>&gt;</span>
 // some great code here
 var x = <span class="hljs-tag">&lt;<span class="hljs-title">em</span>&gt;</span>element<span class="hljs-tag">&lt;/<span class="hljs-title">em</span>&gt;</span>;
@@ -178,9 +183,9 @@ var x = <span class="hljs-tag">&lt;<span class="hljs-title">em</span>&gt;</span>
 </code></pre>
 </section>
 
-<a name="Rendered as a demobox"></a>
+<a name="rendered-as-a-demobox"></a>
 <section>
-<h3><a href="#Rendered as a demobox">Rendered as a demobox</a></h3>
+<h3><a href="#rendered-as-a-demobox">Rendered as a demobox</a></h3>
 <p>The <code>demobox.js</code> script finds all <code>textarea</code>s with the <code>data-demobox</code>
 attribute and converts them into demoboxes that look like this:</p>
 <textarea data-demobox height="150" output="true" position="right" lang="jsx">
@@ -193,9 +198,9 @@ Look at the html source of this page (and <a href="demo.html">the demo page</a>)
 </section>
 </section>
 
-<a name="As a react component"></a>
+<a name="as-a-react-component"></a>
 <section>
-<h1><a href="#As a react component">As a react component</a></h1>
+<h1><a href="#as-a-react-component">As a react component</a></h1>
 <p>If you install the <code>demobox</code> library from npm (<code>npm install -S demobox</code>) then
 you can use the <code>DemoBox</code> react component in your project.</p>
 <p>In this demobox, you can play with the <code>DemoBox</code> component :).</p>
