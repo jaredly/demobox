@@ -68,7 +68,7 @@
 <h1><a href="#cli demo page generator">cli demo page generator</a></h1>
 <p>The <code>demobox</code> cli tool will turn a regular markdown file with annotated code
 snippets into a stylish demo page with editable examples. You can look at the
-markdown source for this page <a href="/index.md">here</a>.</p>
+markdown source for this page <a href="https://github.com/jaredly/demobox/blob/master/Readme.md">here</a>.</p>
 <pre><code class="bash">$ npm install -g demobox
 $ demobox -i demo.md -o demo.html
 </code></pre>
@@ -82,18 +82,17 @@ $ demobox -i demo.md -o demo.html
 title: Demobox
 extraHead: demo-head.html
 styles: demo.css
-repo: http://github.com/jaredly/demobox
 fontPair: Open Sans
-
-demobox:
-<span class="hljs-bullet">- </span>height: 200px
+colors: light-green
+links:
+  Github: http://github.com/jaredly/demobox
 
 <span class="hljs-horizontal_rule">---</span>
 
 
 <span class="hljs-header"># First example</span>
 
-<span class="hljs-code">``\`</span>javascript
+``ˋjavascript
 // @demobox height=150px
 var first = 'javascript code'
   , second = <span class="hljs-code">`You can evaluate ${first} with es6 goodness.`</span>;
@@ -103,7 +102,7 @@ var first = 'javascript code'
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span></span>{second} <span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">br</span>/&gt;</span></span>
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">strong</span>&gt;</span></span>JSX is just fine<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">strong</span>&gt;</span></span>
 <span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span></span>
-<span class="hljs-code">``\`</span>
+``ˋ
 
 ... etc.
 </code></pre>
