@@ -10,7 +10,8 @@ links:
   Github: https://github.com/jaredly/demobox
 ---
 
-Check out [the source for this page](https://github.com/jaredly/demobox/blob/master/demo.md)) and [the source for the home page](https://github.com/jaredly/demobox/blob/master/Readme.md) for extended examples of using `demobox` page generator.
+Check out [the source for this page](https://github.com/jaredly/demobox/blob/master/demo.md)
+and [the source for the home page](https://github.com/jaredly/demobox/blob/master/Readme.md) for extended examples of using `demobox` page generator.
 
 This page demonstrates some of the configuration for the `DemoBox` component.
 
