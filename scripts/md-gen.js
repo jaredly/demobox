@@ -39,14 +39,6 @@ fs.writeFileSync(__dirname + '/../themes.md', mdFile(themeNames))
 function mdFile(themes) {
   var text = fs.readFileSync(__dirname + '/md-top.md')
   themes.forEach(function (theme) {
-    /*
-    text += '<div>\n  <img src="theme_pics/' + theme.name + '.png"/>\n  <table><tbody>'
-    text += '\n    <tr><td>Colors</td><td>' + theme.colors + '</td></tr>'
-    text += '\n    <tr><td>Header Font</td><td>' + theme.headFont + '</td></tr>'
-    text += '\n    <tr><td>Body Font</td><td>' + theme.bodyFont + '</td></tr>'
-    text += '\n  </tbody></table>\n</div>\n\n'
-    */
-
     text += '<div>\n  <a href="theme_pics/' + theme.name + '.png"><img src="theme_pics/' + theme.name + '.png"/></a>\n  <table><thead>'
     text += '\n    <tr><th>Colors</th><th>Head</th><th>Body</th></tr>'
     text += '\n    </thead><tbody><tr>'

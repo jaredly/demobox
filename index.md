@@ -58,7 +58,7 @@ var first = 'javascript code'
 
 ## `demo.html` rendered page (||)
 
-<a target="_blank" href="demo.html"><img src="./demo.png" width="100%"/></a>
+[![demo page](./demo.png)](demo.html)
 
 ## Configuration
 

@@ -19,6 +19,20 @@ pages:
 gh-pages: pages
 	cd pages && git add . && git commit -am'update pages' && git push
 
+# depends on slimerjs
+gen-themes:
+	mkdir -p scripts/tmp
+	rsync build/* scripts/tmp
+	node scripts/make-themes.js
+	python scripts/make-themes.py
+	mv scripts/tmp/*.png pages/theme_pics
+	node scripts/md-gen.js
+
+md-gen:
+	node scripts/md-gen.js
+
+gen-demo:
+	slimerjs scripts/main-demo.js
 
 index:
 	./bin/demobox -i index.md -o pages/index.html --no-cdn
