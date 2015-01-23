@@ -9,7 +9,7 @@ module.exports.DEFAULTS = {
   subtitle: '',
   links: {},
   cdn: true,
-  theme: '',
+  ga: false,
   fontPair: '',
   colors: '',
   styles: [],

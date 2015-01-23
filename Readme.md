@@ -4,6 +4,7 @@ title: Demobox
 subtitle: Demo Page Generator
 fontPair: Open Sans
 colors: light-green
+ga: UA-7002862-5
 links:
   Home: index.html
   Demos: demo.html
