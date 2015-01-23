@@ -11,8 +11,6 @@
 <script src="react-demobox.js"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
 
 <link rel="stylesheet" href="react-demobox.css">
 <link rel="stylesheet" href="theme.css">
@@ -32,11 +30,11 @@
     background-color: #8bc34a;
 }
 
-.repo {
+.link {
     background-color: #33691e;
 }
 
-.repo:hover {
+.link:hover {
     background-color: #689f38;
 }
 
@@ -56,9 +54,10 @@
     <div class="title">
         React Demobox
     </div>
-    <a href="https://github.com/jaredly/react-demobox" class="repo">
-        Github
-    </a>
+
+    <a class="link" href="demo.html">Demos</a>
+<a class="link" href="themes.html">Themes</a>
+<a class="link" href="https://github.com/jaredly/react-demobox">Github</a>
 </header>
 
 <section id="main">
@@ -70,46 +69,50 @@
 <p>The <code>demobox</code> cli tool will turn a regular markdown file with annotated code
 snippets into a stylish demo page with editable examples. You can look at the
 markdown source for this page <a href="/index.md">here</a>.</p>
-<pre><code class="lang-bash">$ npm install -g demobox
-$ demobox -i infile.md -o outfile.html
+<pre><code class="bash">$ npm install -g demobox
+$ demobox -i demo.md -o demo.html
 </code></pre>
 
 <section class="columns">
-<a name="<code>infile.md</code>"></a>
+<a name="<code>demo.md</code>"></a>
 <section>
-<h2><a href="#<code>infile.md</code>"><code>infile.md</code></a></h2>
-<pre><code class="lang-markdown">---
+<h2><a href="#<code>demo.md</code>"><code>demo.md</code></a></h2>
+<pre><code class="markdown"><span class="hljs-horizontal_rule">---</span>
 
-title = &quot;Awesomebutton Demo&quot;
-repo = &quot;http://github.com/jaredly/awesomebutton&quot;
-scripts = &quot;awesomebutton.js&quot;
+title: React Demobox
+extraHead: demo-head.html
+styles: demo.css
+repo: http://github.com/jaredly/react-demobox
+fontPair: Open Sans
 
-[demobox]
-height = &quot;100px&quot;
+demobox:
+<span class="hljs-bullet">- </span>height: 200px
 
----
+<span class="hljs-horizontal_rule">---</span>
 
 
-# Default Options
+<span class="hljs-header"># First example</span>
 
-`` `jsx
-// @demobox
-&lt;MyButton name=&#39;julie&#39;/&gt;
-`` `
+<span class="hljs-code">``\`</span>javascript
+// @demobox height=150px
+var first = 'javascript code'
+  , second = <span class="hljs-code">`You can evaluate ${first} with es6 goodness.`</span>;
+// the last line must be an expression that results in a react
+//  element.
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span></span>
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span></span>{second} <span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">br</span>/&gt;</span></span>
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">strong</span>&gt;</span></span>JSX is just fine<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">strong</span>&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span></span>
+<span class="hljs-code">``\`</span>
 
-# Extra Large
-
-`` `jsx
-// @demobox
-&lt;MyButton large={true}/&gt;
-`` `
+... etc.
 </code></pre>
 </section>
 
-<a name="<code>outfile.html</code> rendered page"></a>
+<a name="<code>demo.html</code> rendered page"></a>
 <section>
-<h2><a href="#<code>outfile.html</code> rendered page"><code>outfile.html</code> rendered page</a></h2>
-<p><img src="./example-shot.png" alt="example shot"></p>
+<h2><a href="#<code>demo.html</code> rendered page"><code>demo.html</code> rendered page</a></h2>
+<p><a href="demo.html"><img src="./demo.png" alt="demo page"></a></p>
 </section>
 
 </section>
@@ -130,21 +133,21 @@ height = &quot;100px&quot;
 <a name="Included in the <code>&lt;head&gt;</code>"></a>
 <section>
 <h3><a href="#Included in the <code>&lt;head&gt;</code>">Included in the <code>&lt;head&gt;</code></a></h3>
-<pre><code class="lang-html">&lt;!-- if you want codemirror, that needs to be included separately --&gt;
-&lt;script src=&quot;react-demobox.js&quot;&gt;&lt;/script&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;react-demobox.css&quot;&gt;
+<pre><code class="html"><span class="hljs-comment">&lt;!-- if you want codemirror, that needs to be included separately --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"react-demobox.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"stylesheet"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"react-demobox.css"</span>&gt;</span>
 </code></pre>
 </section>
 
 <a name="Markup in the page"></a>
 <section>
 <h3><a href="#Markup in the page">Markup in the page</a></h3>
-<pre><code class="lang-html">&lt;textarea data-demobox&gt;
+<pre><code class="html"><span class="hljs-tag">&lt;<span class="hljs-title">textarea</span> <span class="hljs-attribute">data-demobox</span>&gt;</span>
 // some great code here
-var x = &lt;em&gt;element&lt;/em&gt;;
+var x = <span class="hljs-tag">&lt;<span class="hljs-title">em</span>&gt;</span>element<span class="hljs-tag">&lt;/<span class="hljs-title">em</span>&gt;</span>;
 
-&lt;strong&gt;End with a react {x}&lt;/strong&gt;
-&lt;/textarea&gt;
+<span class="hljs-tag">&lt;<span class="hljs-title">strong</span>&gt;</span>End with a react {x}<span class="hljs-tag">&lt;/<span class="hljs-title">strong</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">textarea</span>&gt;</span>
 </code></pre>
 </section>
 
