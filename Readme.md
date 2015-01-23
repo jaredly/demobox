@@ -16,11 +16,17 @@ demobox:
 ---
 -->
 
+###  Demobox is a quick & stylish way of getting a demo page up and running for your new react component.
+
 There are three ways to use demobox, for varying simplicity and flexibility.
 
-1. [demo page generator](#demo-page-generator)
-2. [drop-in script](#the-demoboxjs-drop-in-script)
-3. [react component](#as-a-react-component)
+1. [demo page generator](#demo-page-generator) -- markdown to demo page converter
+2. [drop-in script](#the-demoboxjs-drop-in-script) -- turn text boxes into live editors
+3. [react component](#as-a-react-component) -- integrate a live editor into your project
+
+Take a look at the [FAQ](#faq) at the bottom, or head over to
+[github](https://github.com/jaredly/demobox/issues) to file an issue or ask a
+question.
 
 # Demo Page Generator
 
@@ -75,6 +81,9 @@ var first = 'javascript code'
 [![demo page](./demo.png)](demo.html)
 
 ## Configuration
+
+These go in the yaml frontmatter (similar to jekyll) at the top of the
+markdown file.
 
 - **title:** the title of the page (default: Demo Page)
 - **subtitle:** the subtitle (default: none)
@@ -166,4 +175,16 @@ var value = `\
     codeMirror={true}
     initialValue={value}/>
 ```
+
+# FAQ
+
+### Why not use jekyll / some other static site generator?
+Demobox is for quick and simple jobs, and requires very little configuration
+to get something usable and beautiful. You don't have time to set up a
+full-blown website for each little component you create, but you want a way to
+**show the world** what you've done in a classy way.
+
+### Why not use jsfiddle / plunkr / codepen for embedding editable code snippets?
+Demobox works with vesion control; jsfiddle etc. does not. Demobox also has
+first-class support for JSX and React components (and support for HTML/CSS coming soon!).
 

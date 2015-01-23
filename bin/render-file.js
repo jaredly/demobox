@@ -19,7 +19,7 @@ function chooseByTitle(title, object) {
 }
 
 function fontImports(font) {
-  return '<link href="http://fonts.googleapis.com/css?family=' +
+  return '<link href="https://fonts.googleapis.com/css?family=' +
     font.head.url + (font.body.url ? '|' + font.body.url : '') + '" rel="stylesheet"/>'
 }
 
