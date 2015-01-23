@@ -137,16 +137,29 @@ var first = 'javascript code'
 <section>
 <h2><a href="#configuration">Configuration</a></h2>
 <ul>
-<li>colors: for color names, see <a href="http://www.google.com/design/spec/style/color.html#color-color-palette">the material UI color list</a></li>
-<li>fontPair: the font pairings come from <a href="http://github.com/femmebot">femmebot&#39;s</a> <a href="http://femmebot.github.io/google-type/">google type project</a></li>
+<li><strong>title:</strong> the title of the page (default: Demo Page)</li>
+<li><strong>subtitle:</strong> the subtitle (default: none)</li>
+<li><strong>links:</strong> a map of title:href for links displayed in the header</li>
+<li><strong>styles:</strong> a list of css files to include on the page</li>
+<li><strong>scripts:</strong> a list of js files to include</li>
+<li><strong>extraHead:</strong> a list of html files to inject at the end of the head</li>
+<li><strong>bodyTop:</strong> a list of html files to inject at the top of the body</li>
 </ul>
+
+<a name="themes"></a>
+<section>
+<h3><a href="#themes">Themes</a></h3>
+<p>There are two configuration options associated with theming, <code>colors</code> and
+<code>fontPair</code>. Look at the <a href="themes.html">themes page</a> for examples and more
+information.</p>
+</section>
 </section>
 
 <a name="special-headings"></a>
 <section>
 <h2><a href="#special-headings">Special Headings</a></h2>
 <p>There are a few suffixes you can put onto headings that will give them extra
-properties.</p>
+properties (See the <a href="https://github.com/jaredly/demobox/blob/master/Readme.md">markdown source</a> of this page for an example).</p>
 <ul>
 <li><code>(&lt;&lt;)</code> marks the section as collapsed</li>
 <li><code>(&gt;&gt;)</code> marks the section as collapsible but expanded</li>
