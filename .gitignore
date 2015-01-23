@@ -7,3 +7,4 @@ www/react-demobox.js
 /pages
 scripts/tmp
 themes.md
+*.swo
