@@ -35,7 +35,7 @@ gen-demo:
 	slimerjs scripts/main-demo.js
 
 index:
-	./bin/demobox -i index.md -o pages/index.html --no-cdn
+	./bin/demobox -i Readme.md -o pages/index.html --no-cdn
 
 themes:
 	./bin/demobox --no-cdn -i themes.md -o pages/themes.html
