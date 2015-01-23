@@ -83,6 +83,8 @@ var first = 'javascript code'
 - **scripts:** a list of js files to include
 - **extraHead:** a list of html files to inject at the end of the head
 - **bodyTop:** a list of html files to inject at the top of the body
+- **ga:** google analytics tracking code. If present, GA code is added to the
+    bottom of the page.
 
 ### Themes
 
