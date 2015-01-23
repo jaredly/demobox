@@ -2,8 +2,11 @@
 title: React Demobox
 extraHead: demo-head.html
 styles: demo.css
-repo: http://github.com/jaredly/react-demobox
 fontPair: Open Sans
+links:
+  Hemo: index.html
+  Themes: themes.html
+  Github: https://github.com/jaredly/react-demobox
 
 demobox:
 - height: 200px

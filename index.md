@@ -1,8 +1,11 @@
 ---
 title: React Demobox
 styles: demo.css
-repo: https://github.com/jaredly/react-demobox
 fontPair: Open Sans
+links:
+  Demos: demo.html
+  Themes: themes.html
+  Github: https://github.com/jaredly/react-demobox
 
 demobox:
 - style-min-width: "300px"
@@ -18,40 +21,44 @@ markdown source for this page [here](/index.md).
 
 ```bash
 $ npm install -g demobox
-$ demobox -i infile.md -o outfile.html
+$ demobox -i demo.md -o demo.html
 ```
 
-## `infile.md` (||)
+## `demo.md` (||)
 
 ```markdown
 
 ---
-title = "Awesomebutton Demo"
-repo = "http://github.com/jaredly/awesomebutton"
-scripts = "awesomebutton.js"
+title: React Demobox
+extraHead: demo-head.html
+styles: demo.css
+repo: http://github.com/jaredly/react-demobox
+fontPair: Open Sans
 
-[demobox]
-height = "100px"
+demobox:
+- height: 200px
 ---
 
-# Default Options
+# First example
 
-`` `jsx
-// @demobox
-<MyButton name='julie'/>
-`` `
+``\`javascript
+// @demobox height=150px
+var first = 'javascript code'
+  , second = `You can evaluate ${first} with es6 goodness.`;
+// the last line must be an expression that results in a react
+//  element.
+<p>
+  <span>{second} </span><br/>
+  <strong>JSX is just fine</strong>
+</p>
+``\`
 
-# Extra Large
-
-`` `jsx
-// @demobox
-<MyButton large={true}/>
-`` `
+... etc.
 ```
 
-## `outfile.html` rendered page (||)
+## `demo.html` rendered page (||)
 
-![example shot](./example-shot.png)
+<a target="_blank" href="demo.html"><img src="./demo.png" width="100%"/></a>
 
 ## Configuration
 

@@ -27,8 +27,9 @@ body {
     }
 }
 
-.repo {
+.link {
     padding: 5px 10px;
+    margin: 0 5px;
     display: inline-block;
     background-color: #b71c1c;
     transition: background-color .1s ease;
@@ -38,10 +39,6 @@ body {
 
     &:hover {
         background-color: #d32f2f;
-    }
-
-    &[href=""] {
-        display: none;
     }
 }
 
@@ -67,6 +64,13 @@ h1 {
 
 pre, .CodeMirror {
     font-size: 16px;
+}
+
+pre > code {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #f0f0f0;
 }
 
 p {

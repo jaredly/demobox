@@ -11,8 +11,6 @@
 <script src="{cdn}react-demobox.js"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
 
 <link rel="stylesheet" href="{cdn}react-demobox.css">
 <link rel="stylesheet" href="{cdn}theme.css">
@@ -32,11 +30,11 @@
     background-color: {color:main};
 }
 
-.repo {
+.link {
     background-color: {color:accent};
 }
 
-.repo:hover {
+.link:hover {
     background-color: {color:accent-light};
 }
 
@@ -56,9 +54,8 @@
     <div class="title">
         {title}
     </div>
-    <a href="{repo}" class="repo">
-        Github
-    </a>
+
+    {links}
 </header>
 
 <section id="main">

@@ -41,7 +41,13 @@ function getTheme(config) {
   return theme
 }
 
-function renderFile(fileName, outName, noCDN) {
+function makeLinks(links) {
+  return Object.keys(links).map(function (name) {
+    return '<a class="link" href="' + links[name] + '">' + name + '</a>'
+  }).join('\n')
+}
+
+function renderFile(fileName, outName, noCDN, extraConfig) {
 
   var raw = fs.readFileSync(fileName).toString('utf8')
   var parts = raw.split(/^---$/gm)
@@ -60,6 +66,10 @@ function renderFile(fileName, outName, noCDN) {
     config.cdn = false
   }
 
+  for (var name in extraConfig) {
+    config[name] = extraConfig[name]
+  }
+
   var theme = getTheme(config)
 
   var top = fs.readFileSync(__dirname + '/top.html', 'utf8')
@@ -68,7 +78,7 @@ function renderFile(fileName, outName, noCDN) {
 
   top = format(top, {
     title: config.title,
-    repo: config.repo,
+    links: makeLinks(config.links),
 
     cdn: config.cdn ? 'https://jaredly.github.io/react-demobox/' : '',
 

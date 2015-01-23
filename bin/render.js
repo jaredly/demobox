@@ -1,5 +1,15 @@
 
 var marked = require('marked')
+  , hljs = require('highlight.js')
+
+// Synchronous highlighting with highlight.js
+marked.setOptions({
+  langPrefix: '',
+  highlight: function (code, language) {
+    if (!language) return hljs.highlightAuto(code).value
+    return hljs.highlight(language, code).value;
+  }
+});
 
 module.exports = function (raw, config) {
   var rend = new marked.Renderer()
@@ -53,7 +63,7 @@ module.exports = function (raw, config) {
 
   var body
   try {
-    body = marked(raw, {renderer: rend})
+    body = marked(raw, {renderer: rend, langPrefix: ''})
   } catch (e) {
     console.log('Failed to render markdown!')
     console.log(e.message + '\n' + e.stack)

@@ -23,6 +23,9 @@ gh-pages: pages
 index:
 	./bin/demobox -i index.md -o pages/index.html --no-cdn
 
+themes:
+	./bin/demobox --no-cdn -i themes.md -o pages/themes.html
+
 demo:
 	./bin/demobox --no-cdn -o pages/demo.html
 
