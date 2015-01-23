@@ -1,11 +1,13 @@
 ---
 title: Demobox Demos
+subtitle: Getting rather meta
 extraHead: demo-head.html
 styles: demo.css
 fontPair: Open Sans
 colors: light-green
 links:
   Home: index.html
+  Demos: demos.html
   Themes: themes.html
   Github: https://github.com/jaredly/demobox
 

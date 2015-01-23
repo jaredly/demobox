@@ -6,6 +6,7 @@ styles: demo.css
 fontPair: Open Sans
 colors: light-green
 links:
+  Home: index.html
   Demos: demo.html
   Themes: themes.html
   Github: https://github.com/jaredly/demobox
@@ -17,11 +18,15 @@ demobox:
 
 There are three ways to use demobox, for varying simplicity and flexibility.
 
-# cli demo page generator
+# Demo Page Generator
 
 The `demobox` cli tool will turn a regular markdown file with annotated code
 snippets into a stylish demo page with editable examples. You can look at the
-markdown source for this page [here](https://github.com/jaredly/demobox/blob/master/Readme.md).
+markdown source for this page
+[here](https://github.com/jaredly/demobox/blob/master/Readme.md) as an
+example. Also the source for the demo page
+([demo.md](https://github.com/jaredly/demobox/blob/master/Readme.md))
+showcases a number of features.
 
 ```bash
 $ npm install -g demobox
@@ -68,7 +73,7 @@ var first = 'javascript code'
 - colors: for color names, see [the material UI color list](http://www.google.com/design/spec/style/color.html#color-color-palette)
 - fontPair: the font pairings come from [femmebot's](http://github.com/femmebot) [google type project](http://femmebot.github.io/google-type/)
 
-# demobox.js script
+# The `demobox.js` drop-in script
 
 ### Included in the `<head>`
 
@@ -101,6 +106,9 @@ var x = <em>element</em>;
 
 <strong>End with a react {x}</strong>
 ```
+
+Configuration options can be given as `data-*` attributes on the textarea.
+Look at the html source of this page (and the demo page) for example usage.
 
 # As a react component
 

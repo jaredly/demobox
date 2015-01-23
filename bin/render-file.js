@@ -85,6 +85,7 @@ function renderFile(fileName, outName, noCDN, extraConfig) {
 
   top = format(top, {
     title: config.title,
+    subtitle: config.subtitle,
     links: makeLinks(config.links),
 
     cdn: config.cdn ? 'https://jaredly.github.io/demobox/' : '',
@@ -94,6 +95,7 @@ function renderFile(fileName, outName, noCDN, extraConfig) {
     'font:body': theme.fonts.body.name,
 
     'color:main': theme.colors.main,
+    'color:lightest': theme.colors.lightest,
     'color:accent': theme.colors.accent,
     'color:accent-light': theme.colors.accentLight,
 
