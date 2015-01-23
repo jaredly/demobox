@@ -6,5 +6,5 @@ fontPair: open sans
 links:
   Home: index.html
   Demos: demo.html
-  Github: https://github.com/jaredly/react-demobox
+  Github: https://github.com/jaredly/demobox
 ---

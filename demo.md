@@ -1,12 +1,13 @@
 ---
-title: React Demobox
+title: Demobox Demos
 extraHead: demo-head.html
 styles: demo.css
 fontPair: Open Sans
+colors: light-green
 links:
-  Hemo: index.html
+  Home: index.html
   Themes: themes.html
-  Github: https://github.com/jaredly/react-demobox
+  Github: https://github.com/jaredly/demobox
 
 demobox:
 - height: 200px
@@ -34,7 +35,7 @@ var first = 'javascript code'
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/mode/javascript/javascript.min.js"></script>
-<script src="react-demobox.js"></script>
+<script src="demobox.js"></script>
 ```
 
 ### In the `<body>`
@@ -108,14 +109,25 @@ be displayed. Default is "right".
                 data-style-width="500px"
                 data-style-height="200px"
                 data-target="#second-target">
-                <span>This demo box one has a render target that is external, in a
-                different cell of this table</span>
+                // code here
+                <span>
+                  <strong>[render target] </strong>
+                  This demo box one has a render target
+                  that is external, in a different
+                  cell of this table
+                </span>
             </textarea>
         </td>
         <td>
             <h3>Source HTML</h3>
-<pre><code class="language-html">&lt;textarea data-demobox data-target="#id-of-target"&gt;
-... code ...
+<pre><code class="html">&lt;textarea data-demobox data-target="#id-of-target"&gt;
+// code here
+&lt;span>
+  &lt;strong>[render target] &lt;/strong>
+  This demo box one has a render target
+  that is external, in a different
+  cell of this table
+&lt;/span>
 &lt;/textarea&gt;</code></pre>
         </td>
     </tr>

@@ -2,11 +2,11 @@
 ARGS=-t [ reactify --es6 --everything --visitors jstransform/visitors/es6-destructuring-visitors ]
 
 js:
-	browserify ${ARGS} -d run.js -o build/react-demobox.js
+	browserify ${ARGS} -d run.js -o build/demobox.js
 
 less:
 	lessc less/theme.less build/theme.css
-	lessc less/index.less build/react-demobox.css
+	lessc less/index.less build/demobox.css
 
 colors:
 	mkdir -p build/themes

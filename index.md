@@ -1,11 +1,12 @@
 ---
-title: React Demobox
+title: Demobox
 styles: demo.css
 fontPair: Open Sans
+colors: light-green
 links:
   Demos: demo.html
   Themes: themes.html
-  Github: https://github.com/jaredly/react-demobox
+  Github: https://github.com/jaredly/demobox
 
 demobox:
 - style-min-width: "300px"
@@ -29,10 +30,10 @@ $ demobox -i demo.md -o demo.html
 ```markdown
 
 ---
-title: React Demobox
+title: Demobox
 extraHead: demo-head.html
 styles: demo.css
-repo: http://github.com/jaredly/react-demobox
+repo: http://github.com/jaredly/demobox
 fontPair: Open Sans
 
 demobox:
@@ -65,14 +66,14 @@ var first = 'javascript code'
 - colors: for color names, see [the material UI color list](http://www.google.com/design/spec/style/color.html#color-color-palette)
 - fontPair: the font pairings come from [femmebot's](http://github.com/femmebot) [google type project](http://femmebot.github.io/google-type/)
 
-# react-demobox.js script
+# demobox.js script
 
 ### Included in the `<head>`
 
 ```html
 <!-- if you want codemirror, that needs to be included separately -->
-<script src="react-demobox.js"></script>
-<link rel="stylesheet" href="react-demobox.css">
+<script src="https://jaredly.github.io/demobox/demobox.js"></script>
+<link rel="stylesheet" href="https://jaredly.github.io/demobox/demobox.css">
 ```
 
 ### Markup in the page
@@ -88,7 +89,7 @@ var x = <em>element</em>;
 
 ### Rendered as a demobox
 
-The `react-demobox.js` script finds all `textarea`s with the `data-demobox`
+The `demobox.js` script finds all `textarea`s with the `data-demobox`
 attribute and converts them into demoboxes that look like this:
 
 ```jsx
