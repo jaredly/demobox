@@ -2,17 +2,17 @@
 <html>
 <head>
 <meta charset="utf8">
-<title>React Demobox</title>
+<title>Demobox</title>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/mode/javascript/javascript.min.js"></script>
 
-<script src="react-demobox.js"></script>
+<script src="demobox.js"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
 
-<link rel="stylesheet" href="react-demobox.css">
+<link rel="stylesheet" href="demobox.css">
 <link rel="stylesheet" href="theme.css">
 
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:800|Gentium+Basic:400,400italic" rel="stylesheet"/>
@@ -52,12 +52,12 @@
 
 <header id="header">
     <div class="title">
-        React Demobox
+        Demobox
     </div>
 
     <a class="link" href="demo.html">Demos</a>
 <a class="link" href="themes.html">Themes</a>
-<a class="link" href="https://github.com/jaredly/react-demobox">Github</a>
+<a class="link" href="https://github.com/jaredly/demobox">Github</a>
 </header>
 
 <section id="main">
@@ -79,10 +79,10 @@ $ demobox -i demo.md -o demo.html
 <h2><a href="#<code>demo.md</code>"><code>demo.md</code></a></h2>
 <pre><code class="markdown"><span class="hljs-horizontal_rule">---</span>
 
-title: React Demobox
+title: Demobox
 extraHead: demo-head.html
 styles: demo.css
-repo: http://github.com/jaredly/react-demobox
+repo: http://github.com/jaredly/demobox
 fontPair: Open Sans
 
 demobox:
@@ -126,16 +126,16 @@ var first = 'javascript code'
 </section>
 </section>
 
-<a name="react-demobox.js script"></a>
+<a name="demobox.js script"></a>
 <section>
-<h1><a href="#react-demobox.js script">react-demobox.js script</a></h1>
+<h1><a href="#demobox.js script">demobox.js script</a></h1>
 
 <a name="Included in the <code>&lt;head&gt;</code>"></a>
 <section>
 <h3><a href="#Included in the <code>&lt;head&gt;</code>">Included in the <code>&lt;head&gt;</code></a></h3>
 <pre><code class="html"><span class="hljs-comment">&lt;!-- if you want codemirror, that needs to be included separately --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"react-demobox.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"stylesheet"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"react-demobox.css"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://jaredly.github.io/demobox/demobox.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"stylesheet"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"https://jaredly.github.io/demobox/demobox.css"</span>&gt;</span>
 </code></pre>
 </section>
 
@@ -154,7 +154,7 @@ var x = <span class="hljs-tag">&lt;<span class="hljs-title">em</span>&gt;</span>
 <a name="Rendered as a demobox"></a>
 <section>
 <h3><a href="#Rendered as a demobox">Rendered as a demobox</a></h3>
-<p>The <code>react-demobox.js</code> script finds all <code>textarea</code>s with the <code>data-demobox</code>
+<p>The <code>demobox.js</code> script finds all <code>textarea</code>s with the <code>data-demobox</code>
 attribute and converts them into demoboxes that look like this:</p>
 <textarea data-demobox height="150" output="true" position="right" lang="jsx">
 // some great code here

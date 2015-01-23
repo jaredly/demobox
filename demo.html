@@ -2,17 +2,17 @@
 <html>
 <head>
 <meta charset="utf8">
-<title>React Demobox</title>
+<title>Demobox Demos</title>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/mode/javascript/javascript.min.js"></script>
 
-<script src="react-demobox.js"></script>
+<script src="demobox.js"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
 
-<link rel="stylesheet" href="react-demobox.css">
+<link rel="stylesheet" href="demobox.css">
 <link rel="stylesheet" href="theme.css">
 
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:800|Gentium+Basic:400,400italic" rel="stylesheet"/>
@@ -63,12 +63,12 @@ var NameComponent = React.createClass({\n\
 
 <header id="header">
     <div class="title">
-        React Demobox
+        Demobox Demos
     </div>
 
-    <a class="link" href="index.html">Hemo</a>
+    <a class="link" href="index.html">Home</a>
 <a class="link" href="themes.html">Themes</a>
-<a class="link" href="https://github.com/jaredly/react-demobox">Github</a>
+<a class="link" href="https://github.com/jaredly/demobox">Github</a>
 </header>
 
 <section id="main">
@@ -96,7 +96,7 @@ var first = 'javascript code'
 <pre><code class="html"><span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"stylesheet"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.css"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/mode/javascript/javascript.min.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"react-demobox.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"demobox.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 </section>
 
@@ -173,14 +173,25 @@ be displayed. Default is &quot;right&quot;.</p>
                 data-style-width="500px"
                 data-style-height="200px"
                 data-target="#second-target">
-                <span>This demo box one has a render target that is external, in a
-                different cell of this table</span>
+                // code here
+                <span>
+                  <strong>[render target] </strong>
+                  This demo box one has a render target
+                  that is external, in a different
+                  cell of this table
+                </span>
             </textarea>
         </td>
         <td>
             <h3>Source HTML</h3>
-<pre><code class="language-html">&lt;textarea data-demobox data-target=&quot;#id-of-target&quot;&gt;
-... code ...
+<pre><code class="html">&lt;textarea data-demobox data-target=&quot;#id-of-target&quot;&gt;
+// code here
+&lt;span&gt;
+  &lt;strong&gt;[render target] &lt;/strong&gt;
+  This demo box one has a render target
+  that is external, in a different
+  cell of this table
+&lt;/span&gt;
 &lt;/textarea&gt;</code></pre>
         </td>
     </tr>
