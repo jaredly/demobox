@@ -3,6 +3,7 @@
   "version": "1.1.0",
   "description": "Demo Page Generator & Live Editor Component",
   "main": "index.js",
+  "bin": "./bin/demobox",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

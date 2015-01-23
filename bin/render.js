@@ -11,6 +11,10 @@ marked.setOptions({
   }
 });
 
+function linkTarget(title) {
+  return title.replace(/<[^>]+>/g, '').replace(/\./g, '').replace(/[^\w]/g, '-').toLowerCase()
+}
+
 module.exports = function (raw, config) {
   var rend = new marked.Renderer()
   rend._demobox_headlevel = []
@@ -32,7 +36,7 @@ module.exports = function (raw, config) {
         text += '\n</section>'
       }
       title = title.slice(0, -collapsed[0].length).trim()
-      text += '\n<a name="' + title + '"></a>'
+      text += '\n<a name="' + linkTarget(title) + '"></a>'
       text += '\n<section data-collapsible ' +
         (collapsed[1] === '&lt;&lt;' ? 'class="collapsed"' : '') + '>\n'
     } else {
@@ -43,19 +47,19 @@ module.exports = function (raw, config) {
           text += '\n<section class="columns">'
         }
         title = title.slice(0, -column[0].length).trim()
-        text += '\n<a name="' + title + '"></a>'
+        text += '\n<a name="' + linkTarget(title) + '"></a>'
         text += '\n<section>\n'
       } else {
         if (rend._demobox_column == level) {
           rend._demobox_column = false
           text += '\n</section>'
         }
-        text += '\n<a name="' + title + '"></a>'
+        text += '\n<a name="' + linkTarget(title) + '"></a>'
         text += '\n<section>\n'
       }
     }
     text += '<h' + level + '>' +
-      '<a href="#' + title + '">' +
+      '<a href="#' + linkTarget(title) + '">' +
       title +
       '</a></h' + level + '>\n'
     return text

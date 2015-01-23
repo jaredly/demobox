@@ -17,6 +17,10 @@ demobox:
 
 There are three ways to use demobox, for varying simplicity and flexibility.
 
+1. [demo page generator](#demo-page-generator)
+2. [drop-in script](#the-demoboxjs-drop-in-script)
+3. [react component](#as-a-react-component)
+
 # Demo Page Generator
 
 The `demobox` cli tool will turn a regular markdown file with annotated code
