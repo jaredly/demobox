@@ -30,6 +30,10 @@
     background-color: #8bc34a;
 }
 
+#header .subtitle {
+    color: #f1f8e9;
+}
+
 .link {
     background-color: #33691e;
 }
@@ -44,7 +48,7 @@
 }
 </style>
 
-<link rel="stylesheet" href="demo.css">
+
 
 </head>
 <body>
@@ -54,8 +58,12 @@
     <div class="title">
         Demobox
     </div>
+    <div class="subtitle">
+        Demo Page Generator
+    </div>
 
-    <a class="link" href="demo.html">Demos</a>
+    <a class="link" href="index.html">Home</a>
+<a class="link" href="demo.html">Demos</a>
 <a class="link" href="themes.html">Themes</a>
 <a class="link" href="https://github.com/jaredly/demobox">Github</a>
 </header>
@@ -63,12 +71,16 @@
 <section id="main">
 <p>There are three ways to use demobox, for varying simplicity and flexibility.</p>
 
-<a name="cli demo page generator"></a>
+<a name="Demo Page Generator"></a>
 <section>
-<h1><a href="#cli demo page generator">cli demo page generator</a></h1>
+<h1><a href="#Demo Page Generator">Demo Page Generator</a></h1>
 <p>The <code>demobox</code> cli tool will turn a regular markdown file with annotated code
 snippets into a stylish demo page with editable examples. You can look at the
-markdown source for this page <a href="https://github.com/jaredly/demobox/blob/master/Readme.md">here</a>.</p>
+markdown source for this page
+<a href="https://github.com/jaredly/demobox/blob/master/Readme.md">here</a> as an
+example. Also the source for the demo page
+(<a href="https://github.com/jaredly/demobox/blob/master/demo.md">demo.md</a>)
+showcases a number of features.</p>
 <pre><code class="bash">$ npm install -g demobox
 $ demobox -i demo.md -o demo.html
 </code></pre>
@@ -80,12 +92,13 @@ $ demobox -i demo.md -o demo.html
 <pre><code class="markdown"><span class="hljs-horizontal_rule">---</span>
 
 title: Demobox
-extraHead: demo-head.html
-styles: demo.css
 fontPair: Open Sans
 colors: light-green
 links:
-  Github: http://github.com/jaredly/demobox
+  Home: index.html
+  Demos: demos.html
+  Themes: themes.html
+  Github: https://github.com/jaredly/demobox
 
 <span class="hljs-horizontal_rule">---</span>
 
@@ -123,11 +136,26 @@ var first = 'javascript code'
 <li>fontPair: the font pairings come from <a href="http://github.com/femmebot">femmebot&#39;s</a> <a href="http://femmebot.github.io/google-type/">google type project</a></li>
 </ul>
 </section>
+
+<a name="Special Headings"></a>
+<section>
+<h2><a href="#Special Headings">Special Headings</a></h2>
+<p>There are a few suffixes you can put onto headings that will give them extra
+properties.</p>
+<ul>
+<li><code>(&lt;&lt;)</code> marks the section as collapsed</li>
+<li><code>(&gt;&gt;)</code> marks the section as collapsible but expanded</li>
+<li><code>(||)</code> makes the section part of a column group. Adjascent sections (of the
+  same heading level) that have this marking will be rendered side-by-side.
+  An example of this is the <code>demo.md</code> and &quot;<code>demo.html</code> rendered page&quot;
+  sections above.</li>
+</ul>
+</section>
 </section>
 
-<a name="demobox.js script"></a>
+<a name="The <code>demobox.js</code> drop-in script"></a>
 <section>
-<h1><a href="#demobox.js script">demobox.js script</a></h1>
+<h1><a href="#The <code>demobox.js</code> drop-in script">The <code>demobox.js</code> drop-in script</a></h1>
 
 <a name="Included in the <code>&lt;head&gt;</code>"></a>
 <section>
@@ -160,12 +188,17 @@ attribute and converts them into demoboxes that look like this:</p>
 var x = &lt;em>element&lt;/em>;
 
 &lt;strong>End with a react {x}&lt;/strong>
-</textarea></section>
+</textarea><p>Configuration options can be given as <code>data-*</code> attributes on the textarea.
+Look at the html source of this page (and <a href="demo.html">the demo page</a>) for example usage.</p>
+</section>
 </section>
 
 <a name="As a react component"></a>
 <section>
 <h1><a href="#As a react component">As a react component</a></h1>
+<p>If you install the <code>demobox</code> library from npm (<code>npm install -S demobox</code>) then
+you can use the <code>DemoBox</code> react component in your project.</p>
+<p>In this demobox, you can play with the <code>DemoBox</code> component :).</p>
 <textarea data-demobox height="150" output="true" position="right" lang="jsx">
 var value = `\
 &lt;strong>

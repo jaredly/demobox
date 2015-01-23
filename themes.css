@@ -1,12 +1,15 @@
 
 #main {
     max-width: 1500px;
+}
+
+section.themes-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-#main > div {
+section.themes-list > div {
     width: 32%;
 }
 
