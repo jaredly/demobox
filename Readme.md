@@ -41,7 +41,8 @@ $ demobox -i demo.md -o demo.html
 ```markdown
 
 ---
-title: Demobox
+title: Demobox Demos
+subtitle: Getting rather meta
 fontPair: Open Sans
 colors: light-green
 links:
