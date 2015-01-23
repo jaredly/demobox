@@ -74,13 +74,24 @@ var first = 'javascript code'
 
 ## Configuration
 
-- colors: for color names, see [the material UI color list](http://www.google.com/design/spec/style/color.html#color-color-palette)
-- fontPair: the font pairings come from [femmebot's](http://github.com/femmebot) [google type project](http://femmebot.github.io/google-type/)
+- **title:** the title of the page (default: Demo Page)
+- **subtitle:** the subtitle (default: none)
+- **links:** a map of title:href for links displayed in the header
+- **styles:** a list of css files to include on the page
+- **scripts:** a list of js files to include
+- **extraHead:** a list of html files to inject at the end of the head
+- **bodyTop:** a list of html files to inject at the top of the body
+
+### Themes
+
+There are two configuration options associated with theming, `colors` and
+`fontPair`. Look at the [themes page](themes.html) for examples and more
+information.
 
 ## Special Headings
 
 There are a few suffixes you can put onto headings that will give them extra
-properties.
+properties (See the [markdown source](https://github.com/jaredly/demobox/blob/master/Readme.md) of this page for an example).
 
 - `(<<)` marks the section as collapsed
 - `(>>)` marks the section as collapsible but expanded
