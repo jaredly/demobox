@@ -69,12 +69,20 @@
 </header>
 
 <section id="main">
+
+<a name="demobox-is-a-quick--amp--stylish-way-of-getting-a-demo-page-up-and-running-for-your-new-react-component"></a>
+<section>
+<h3><a href="#demobox-is-a-quick--amp--stylish-way-of-getting-a-demo-page-up-and-running-for-your-new-react-component">Demobox is a quick &amp; stylish way of getting a demo page up and running for your new react component.</a></h3>
 <p>There are three ways to use demobox, for varying simplicity and flexibility.</p>
 <ol>
-<li><a href="#demo-page-generator">demo page generator</a></li>
-<li><a href="#the-demoboxjs-drop-in-script">drop-in script</a></li>
-<li><a href="#as-a-react-component">react component</a></li>
+<li><a href="#demo-page-generator">demo page generator</a> -- markdown to demo page converter</li>
+<li><a href="#the-demoboxjs-drop-in-script">drop-in script</a> -- turn text boxes into live editors</li>
+<li><a href="#as-a-react-component">react component</a> -- integrate a live editor into your project</li>
 </ol>
+<p>Take a look at the <a href="#faq">FAQ</a> at the bottom, or head over to
+<a href="https://github.com/jaredly/demobox/issues">github</a> to file an issue or ask a
+question.</p>
+</section>
 
 <a name="demo-page-generator"></a>
 <section>
@@ -137,6 +145,8 @@ var first = 'javascript code'
 <a name="configuration"></a>
 <section>
 <h2><a href="#configuration">Configuration</a></h2>
+<p>These go in the yaml frontmatter (similar to jekyll) at the top of the
+markdown file.</p>
 <ul>
 <li><strong>title:</strong> the title of the page (default: Demo Page)</li>
 <li><strong>subtitle:</strong> the subtitle (default: none)</li>
@@ -145,6 +155,8 @@ var first = 'javascript code'
 <li><strong>scripts:</strong> a list of js files to include</li>
 <li><strong>extraHead:</strong> a list of html files to inject at the end of the head</li>
 <li><strong>bodyTop:</strong> a list of html files to inject at the top of the body</li>
+<li><strong>ga:</strong> google analytics tracking code. If present, GA code is added to the
+  bottom of the page.</li>
 </ul>
 
 <a name="themes"></a>
@@ -234,6 +246,26 @@ var value = `\
     codeMirror={true}
     initialValue={value}/>
 </textarea></section>
+
+<a name="faq"></a>
+<section>
+<h1><a href="#faq">FAQ</a></h1>
+
+<a name="why-not-use-jekyll---some-other-static-site-generator-"></a>
+<section>
+<h3><a href="#why-not-use-jekyll---some-other-static-site-generator-">Why not use jekyll / some other static site generator?</a></h3>
+<p>Demobox is for quick and simple jobs, and requires very little configuration
+to get something usable and beautiful. You don&#39;t have time to set up a
+full-blown website for each little component you create, but you want a way to
+<strong>show the world</strong> what you&#39;ve done in a classy way.</p>
+</section>
+
+<a name="why-not-use-jsfiddle---plunkr---codepen-for-embedding-editable-code-snippets-"></a>
+<section>
+<h3><a href="#why-not-use-jsfiddle---plunkr---codepen-for-embedding-editable-code-snippets-">Why not use jsfiddle / plunkr / codepen for embedding editable code snippets?</a></h3>
+<p>Demobox works with vesion control; jsfiddle etc. does not. Demobox also has
+first-class support for JSX and React components (and support for HTML/CSS coming soon!).</p>
+</section>
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
