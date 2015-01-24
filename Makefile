@@ -4,6 +4,9 @@ ARGS=-t [ reactify --es6 --everything --visitors jstransform/visitors/es6-destru
 js:
 	browserify ${ARGS} -d run.js -o build/demobox.js
 
+js-xreact:
+	browserify ${ARGS} -d run.js -x react -o build/demobox-xreact.js
+
 less:
 	lessc less/theme.less build/theme.css
 	lessc less/index.less build/demobox.css

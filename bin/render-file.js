@@ -101,6 +101,7 @@ function renderFile(fileName, outName, noCDN, extraConfig) {
     links: makeLinks(config.links),
 
     cdn: config.cdn ? 'https://jaredly.github.io/demobox/' : '',
+    xreact: config.xreact ? '-xreact' : '',
 
     'font-imports': theme.fonts.imports,
     'font:head': theme.fonts.head.name,

@@ -8,6 +8,7 @@ module.exports.DEFAULTS = {
   title: 'Demo Page',
   subtitle: '',
   links: {},
+  xreact: false,
   cdn: true,
   ga: false,
   fontPair: '',
