@@ -94,13 +94,15 @@ function renderFile(fileName, outName, noCDN, extraConfig) {
   var top = fs.readFileSync(__dirname + '/top.html', 'utf8')
     , bottom = fs.readFileSync(__dirname + '/bottom.html', 'utf8')
     , body = require('./render')(raw, config)
+    , cdn = config.cdn ? 'https://jaredly.github.io/demobox/' : ''
 
   top = format(top, {
     title: config.title,
     subtitle: config.subtitle,
     links: makeLinks(config.links),
 
-    cdn: config.cdn ? 'https://jaredly.github.io/demobox/' : '',
+    cdn: cdn,
+    'react-include': config.xreact ? ('<script src="' + cdn + 'react.js"></script>') : '',
     xreact: config.xreact ? '-xreact' : '',
 
     'font-imports': theme.fonts.imports,

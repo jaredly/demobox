@@ -7,6 +7,9 @@ js:
 js-xreact:
 	browserify ${ARGS} -d run.js -x react -o build/demobox-xreact.js
 
+react:
+	browserify -r react -r react/addons -o build/react.js
+
 less:
 	lessc less/theme.less build/theme.css
 	lessc less/index.less build/demobox.css
