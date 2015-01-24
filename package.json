@@ -21,17 +21,18 @@
     "url": "https://github.com/jaredly/demobox/issues"
   },
   "homepage": "https://github.com/jaredly/demobox",
+
   "dependencies": {
     "commander": "^2.6.0",
     "deepcopy": "^0.4.0",
     "highlight.js": "^8.4.0",
     "marked": "^0.3.2",
-    "yamlish": "0.0.6"
-  },
-  "devDependencies": {
-    "commander": "^2.6.0",
+    "yamlish": "0.0.6",
     "jstransform": "^8.2.0",
     "reactify": "^0.17.1",
     "react": "^0.12.2"
+  },
+  "devDependencies": {
+    "commander": "^2.6.0"
   }
 }
