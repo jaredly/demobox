@@ -1,0 +1,11 @@
+*.swp
+*.swo
+.module-cache
+themes.md
+demo.md
+/demobox-*.tgz
+/build
+/node_modules
+/pages
+/scripts
+/www

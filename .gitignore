@@ -8,3 +8,6 @@ www/react-demobox.js
 scripts/tmp
 themes.md
 *.swo
+/css
+/lib-compiled
+/demobox*.tgz

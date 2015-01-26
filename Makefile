@@ -7,8 +7,16 @@ js:
 js-xreact:
 	browserify ${ARGS} -d run.js -x react -o build/demobox-xreact.js
 
+precompile: less-dist
+	jsx --harmony lib lib-compiled
+
 react:
 	browserify -r react -r react/addons -o build/react.js
+
+less-dist:
+	mkdir -p css
+	lessc less/theme.less css/theme.css
+	lessc less/index.less css/demobox.css
 
 less:
 	lessc less/theme.less build/theme.css
@@ -49,4 +57,4 @@ themes:
 demo:
 	./bin/demobox --no-cdn -o pages/demo.html
 
-.PHONY: less js pages
+.PHONY: less js pages css precompile
