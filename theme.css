@@ -4,6 +4,16 @@
 #header {
   font-family: 'Open Sans', sans-serif;
 }
+footer {
+  text-align: center;
+  font-size: .8em;
+  margin-top: 30px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+footer p {
+  margin: 0;
+}
 #main {
   font-family: "Gentium Basic", serif;
 }

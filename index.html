@@ -8,6 +8,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/mode/javascript/javascript.min.js"></script>
 
+
 <script src="demobox.js"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
@@ -42,6 +43,11 @@
     background-color: #689f38;
 }
 
+.link[href=""] {
+    background-color: #689f38;
+    cursor: normal;
+}
+
 .DemoBox_head {
     background-color: #8bc34a;
     color: white;
@@ -50,6 +56,10 @@
 
 
 
+
+
+<script></script>
+<style></style>
 </head>
 <body>
 
@@ -62,7 +72,7 @@
         Demo Page Generator
     </div>
 
-    <a class="link" href="index.html">Home</a>
+    <a class="link" href="">Home</a>
 <a class="link" href="demo.html">Demos</a>
 <a class="link" href="themes.html">Themes</a>
 <a class="link" href="https://github.com/jaredly/demobox">Github</a>
@@ -266,6 +276,10 @@ full-blown website for each little component you create, but you want a way to
 <p>Demobox works with vesion control; jsfiddle etc. does not. Demobox also has
 first-class support for JSX and React components (and support for HTML/CSS coming soon!).</p>
 </section>
+<footer>
+    <p>page rendered with <a href="https://jaredly.github.io/demobox">demobox</a></p>
+    <p><a href="https://github.com/jaredly/demobox/raw/master/Readme.md">markdown source</a> for this page</p>
+</footer>
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
