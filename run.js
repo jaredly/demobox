@@ -32,6 +32,11 @@ function unIndent(text) {
   return lines.map(line => line.slice(min)).join('\n')
 }
 
+function getNodeValue(node) {
+  if (node.value) return node.value
+  return node.innerHTML.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+}
+
 function makeBoxFromNode(node) {
   var style = {}
   ;[].map.call(node.attributes, attr => {
@@ -45,9 +50,11 @@ function makeBoxFromNode(node) {
   style.height = node.getAttribute('height') || style.height
   style.width = node.getAttribute('width') || style.width
 
+  var initialValue = unIndent(getNodeValue(node))
+
   makeBox(node, {
     outputNode: target,
-    initialValue: unIndent(node.value || node.innerHTML),
+    initialValue: initialValue,
     position: node.getAttribute('data-position') || 'right',
     codeMirror: ['0', 'false'].indexOf(node.getAttribute('data-code-mirror')) === -1,
     style: style,
