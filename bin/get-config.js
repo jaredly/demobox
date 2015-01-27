@@ -15,6 +15,8 @@ module.exports.DEFAULTS = {
   colors: '',
   styles: [],
   scripts: [],
+  css: '',
+  js: '',
   extraHead: [],
   bodyTop: [],
   demobox: {

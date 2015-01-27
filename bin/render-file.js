@@ -109,6 +109,9 @@ function renderFile(fileName, outName, noCDN, extraConfig) {
     'font:head': theme.fonts.head.name,
     'font:body': theme.fonts.body.name,
 
+    css: config.css,
+    js: config.js,
+
     'color:main': theme.colors.main,
     'color:lightest': theme.colors.lightest,
     'color:accent': theme.colors.accent,
