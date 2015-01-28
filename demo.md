@@ -6,7 +6,7 @@ colors: light-green
 ga: UA-7002862-5
 links:
   Home: index.html
-  Demos: demos.html
+  Demos:
   Themes: themes.html
   Github: https://github.com/jaredly/demobox
 ---

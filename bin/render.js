@@ -2,6 +2,8 @@
 var marked = require('marked')
   , hljs = require('highlight.js')
 
+  , utils = require('./render-utils')
+
 // Synchronous highlighting with highlight.js
 marked.setOptions({
   langPrefix: '',
@@ -15,11 +17,32 @@ function linkTarget(title) {
   return title.replace(/<[^>]+>/g, '').replace(/\./g, '').replace(/[^\w]/g, '-').toLowerCase()
 }
 
+function link(href, title, text) {
+  var target = ''
+  if (href.indexOf('//') === -1) {
+    if (href.slice(-3) === '.md') {
+      href = href.slice(0, -3) + '.html'
+    }
+  } else {
+    // external link
+    target = ' target="_blank"'
+  }
+  if (title) {
+    title = ' title="' + title + '"'
+  } else {
+    title = ''
+  }
+  return '<a href="' + href + '"' + target + title + '>' + text + '</a>'
+}
+
 module.exports = function (raw, config) {
+  raw = utils.stripHidden(raw)
+
   var rend = new marked.Renderer()
   rend._demobox_headlevel = []
   rend._demobox_column = false
   rend.code = require('./render-code').bind(null, rend, config.demobox)
+  rend.link = link
 
   rend.heading = function (title, level) {
     var l = rend._demobox_headlevel

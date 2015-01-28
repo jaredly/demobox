@@ -8,8 +8,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/codemirror.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.11.0/mode/javascript/javascript.min.js"></script>
 
-{react-include}
-<script src="{cdn}demobox{xreact}.js"></script>
+<script src="{cdn}react.js"></script>
+<script src="{cdn}demobox.js"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
 
@@ -41,6 +41,11 @@
 
 .link:hover {
     background-color: {color:accent-light};
+}
+
+.link[href=""] {
+    background-color: {color:accent-light};
+    cursor: normal;
 }
 
 .DemoBox_head {

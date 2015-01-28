@@ -2,10 +2,7 @@
 ARGS=-t [ reactify --es6 --everything --visitors jstransform/visitors/es6-destructuring-visitors ]
 
 js:
-	browserify ${ARGS} -d run.js -o build/demobox.js
-
-js-xreact:
-	browserify ${ARGS} -d run.js -x react -o build/demobox-xreact.js
+	browserify ${ARGS} -d run.js -x react -x react/addons -o build/demobox.js
 
 precompile: less-dist
 	jsx --harmony lib lib-compiled
