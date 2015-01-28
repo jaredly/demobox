@@ -75,8 +75,8 @@ pre,
 .CodeMirror {
   font-size: 16px;
 }
-p > code {
-  background-color: #e0e0e0;
+code {
+  background-color: #eee;
   padding: 2px 5px;
   border-radius: 5px;
 }
