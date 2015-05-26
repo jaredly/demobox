@@ -1,0 +1,135 @@
+h1 {
+  position: relative;
+}
+h1::before {
+  position: absolute;
+  top: 0;
+  bottom: 5px;
+  right: 100%;
+  width: 10px;
+  background-color: #ccc;
+  content: ' ';
+  margin-right: 20px;
+}
+img {
+  max-width: 100%;
+}
+pre,
+.CodeMirror {
+  font-size: 16px;
+}
+code {
+  background-color: #eee;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+pre > code {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #f0f0f0;
+}
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p {
+  margin-top: 0;
+}
+p {
+  line-height: 1.7;
+}
+h1 {
+  font-size: 1.8em;
+}
+h2 {
+  font-size: 1.3em;
+  color: #333;
+}
+h3 {
+  font-size: 1.2em;
+}
+h4 {
+  font-size: 1.1em;
+  color: #333;
+}
+h5,
+h6 {
+  font-size: 1em;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+h1 a:visited,
+h2 a:visited,
+h3 a:visited,
+h4 a:visited {
+  color: inherit;
+}
+h1 a:hover:before,
+h2 a:hover:before,
+h3 a:hover:before,
+h4 a:hover:before {
+  content: '\1f517';
+  position: absolute;
+  right: 100%;
+  padding-right: 10px;
+  font-weight: bold;
+  color: #333;
+  font-size: 16px;
+  top: 50%;
+  margin-top: -10px;
+}
+table td {
+  border: 1px solid #acc;
+  padding: 20px;
+}
+h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+section.columns {
+  display: flex;
+}
+section.columns > section {
+  margin-left: 20px;
+  flex: 1;
+}
+section.columns > section:nth-child(2) {
+  margin-left: 0;
+}
+section p:first-child {
+  margin-top: 0;
+}
+/*
+section > div > .DemoBox > .DemoBox_output {
+    border-left: 10px double #aaa;
+    padding-left: 10px;
+    margin: 0 10px;
+}
+*/
+.head-left {
+  width: 500px;
+}
+.head {
+  border-bottom: 1px solid #555;
+  margin-bottom: 10px;
+}
+.head span {
+  display: inline-block;
+  padding: 7px 10px;
+  font-weight: bold;
+}
+

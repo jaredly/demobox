@@ -1,51 +1,96 @@
-#!/usr/bin/env node
+#!/usr/bin/env babel-node
 
-var marked = require('marked')
-  , fs = require('fs')
-  , path = require('path')
-  , exec = require('child_process').exec
+import path from 'path'
+import fs from 'fs'
+import Demobox from '../lib'
 
-  , renderFile = require('./render-file')
+let yargs = require('yargs')
 
-var program = require('commander')
+yargs = yargs
+  .usage('Usage: demobox <command> [...options]')
+  .command('gen', 'generate the docs', yargs => {
+    yargs = yargs
+      .usage('demobox gen [...options]')
+      .options({
+        c: {
+          alias: 'config',
+          describe: 'location of the config file to use',
+          default: '.demobox.js',
+          type: 'string',
+        }, 
+      })
+      .help('help')
+      .alias('help', 'h')
+    argv = yargs.argv
+  })
 
-var cmds = {
-  gen: function (options) {
-    var inFile = options.infile || 'demo.md'
-      , outFile = options.outfile || inFile.slice(0, -3) + '.html'
-
-    if (!fs.existsSync(inFile)) {
-      console.log(inFile + ' does not exist')
-      console.log()
-      program.help()
+  .command('serve', 'start an ide for documentation creation', yargs => {
+    yargs = yargs
+      .usage('demobox serve [...options]')
+      .options({
+        c: {
+          alias: 'config',
+          describe: 'location of the config file to use',
+          default: '.demobox.js',
+          type: 'string',
+        }, 
+        p: {
+          alias: 'port',
+          describe: 'Port to listen on',
+          default: '8405',
+          type: 'number',
+        },
+      })
+      .help('help')
+      .alias('help', 'h')
+    argv = yargs.argv
+    if (!fs.existsSync(path.resolve(argv.config))) {
+      yargs.showHelp()
+      process.exit()
     }
+  })
+  .demand(1)
+  .help('help')
+  .alias('help', 'h')
 
-    if (!fs.existsSync(path.dirname(outFile))) {
-      console.log('Destination directory ' + path.dirname(outFile) + ' does not exist')
-      console.log()
-      program.help()
-    }
+let argv = yargs.argv
 
-    renderFile(inFile, outFile, !options.cdn)
+const cmd = argv._[0]
+
+const commands = {
+  gen(db, options) {
+    db.generate()
   },
-};
-
-program
-  .usage('demobox [options]')
-  .option('-i, --infile [infile]', "The path of the markdown file (default: demo.md)")
-  .option('-o, --outfile [outfile]', "The path of the markdown file (default: demo.html)")
-  .option('--no-cdn', "Don't use github pages to serve demobox assets")
-  .version('1.0.0')
-
-program.parse(process.argv)
-
-/*
-var cmd = program.args.length ? program.args[0] : 'gen'
-
-if (!cmds[cmd]) {
-  program.help()
+  server(db, options) {
+    db.serve(options.port)
+  }
 }
-*/
 
-cmds.gen(program)
+if (!commands[cmd]) {
+  console.error(`Unknown command ${cmd}`)
+  process.exit(1)
+}
+
+console.log(`Executing ${cmd}`)
+console.log(JSON.stringify(argv))
+
+let config
+
+try {
+  config = require(path.resolve(argv.config))
+} catch (e) {
+  console.log()
+  console.log()
+  console.log('!!! CONFIG FAIL: unable to load config.')
+  console.log()
+  console.log()
+  throw e
+}
+
+if (!config.baseDir) {
+  config.baseDir = path.dirname(path.resolve(argv.config))
+}
+
+const db = new Demobox(config)
+commands[cmd](db, argv)
 

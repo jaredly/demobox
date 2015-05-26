@@ -13,7 +13,7 @@ links:
   Github: https://github.com/jaredly/demobox
 
 demobox:
-- style-min-width: "300px"
+  style-min-width: "300px"
 ---
 -->
 

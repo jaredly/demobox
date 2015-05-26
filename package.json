@@ -26,11 +26,13 @@
     "commander": "^2.6.0",
     "deepcopy": "^0.4.0",
     "highlight.js": "^8.4.0",
-    "marked": "^0.3.2",
-    "yamlish": "0.0.6",
     "jstransform": "^8.2.0",
+    "marked": "^0.3.2",
+    "rcss": "^0.1.5",
+    "react": "^0.13.3",
     "reactify": "^0.17.1",
-    "react": "^0.12.2"
+    "yamlish": "0.0.6",
+    "yargs": "^3.9.1"
   },
   "devDependencies": {
     "commander": "^2.6.0"
