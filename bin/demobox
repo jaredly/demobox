@@ -59,7 +59,11 @@ const cmd = argv._[0]
 
 const commands = {
   gen(db, options) {
-    db.generate()
+  console.log('generating')
+    db.generate(err => {
+      console.log('Done generating')
+      if (err) console.log(err)
+    })
   },
   server(db, options) {
     db.serve(options.port)
@@ -86,6 +90,8 @@ try {
   console.log()
   throw e
 }
+
+config.configFile = argv.config
 
 if (!config.baseDir) {
   config.baseDir = path.dirname(path.resolve(argv.config))

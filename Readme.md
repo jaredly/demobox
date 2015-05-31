@@ -1,19 +1,9 @@
 <!--
 ---
 title: Demobox
+navTitle: Home
 subtitle: Demo Page Generator
-fontPair: Open Sans
-colors: light-green
-ga: UA-7002862-5
-source: https://github.com/jaredly/demobox/raw/master/Readme.md
-links:
-  Home:
-  Demos: demo.html
-  Themes: themes.html
-  Github: https://github.com/jaredly/demobox
-
-demobox:
-  style-min-width: "300px"
+navIndex: 0
 ---
 -->
 
